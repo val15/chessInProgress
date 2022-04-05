@@ -1,0 +1,2 @@
+SimplePawn;a6;Black;False;False;False;False
+King;d5;Black;False;False;False;False

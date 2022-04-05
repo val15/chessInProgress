@@ -1,0 +1,10 @@
+System.IO.IOException: Le processus ne peut pas accéder au fichier 'D:\tsiry\RANDRENARIZO\Chess\Chess\Chess\bin\Debug\HistoriesFiles\12-33-38 05-10-2021History.txt', car il est en cours d'utilisation par un autre processus.
+   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   à System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   à System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding)
+   à System.IO.File.InternalAppendAllText(String path, String contents, Encoding encoding)
+   à System.IO.File.AppendAllText(String path, String contents)
+   à Chess.MainWindow.AppEndInPartHistory(String line) dans D:\tsiry\RANDRENARIZO\Chess\Chess\Chess\View\MainWindow.xaml.cs:ligne 4069

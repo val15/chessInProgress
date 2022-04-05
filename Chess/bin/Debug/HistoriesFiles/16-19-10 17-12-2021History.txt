@@ -1,0 +1,8 @@
+White:	Pawn	c2 => c3
+Black:	Pawn	d7 => d5
+White:	Pawn	e2 => e3
+Black:	Pawn	e7 => e5
+White:	Queen	d1 => f3
+Black:	Pawn	f7 => f5
+White:	Queen	f3 => g3
+Black:	Pawn	g7 => g5

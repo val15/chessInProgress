@@ -1,0 +1,280 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="890" Width="970" MinHeight="890" Closed="Window_Closed" Closing="Window_Closing" >
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition Height="700"></RowDefinition>
+      <RowDefinition Height="50"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="50"></ColumnDefinition>
+      <ColumnDefinition Width="720"></ColumnDefinition>
+
+      <ColumnDefinition Width="180"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+      <Button Name="RotationButon"  Content="{materialDesign:PackIcon Kind=ScreenRotation}"  Click="RotationButon_Click" ></Button>
+      <!--<Button Name="VSPythonButon"  Content="{materialDesign:PackIcon Kind=AccountConvertOutline}"  Click="VSPythonButon_Click" ></Button>-->
+      <!--<Button Name="PythonTurnButon"  Content="{materialDesign:PackIcon Kind=AppleKeyboardShift}"  Click="PythonTurnButon_Click" ></Button>-->
+
+      <!--<Button Name="SwithToServerEngineButon"  Content="{materialDesign:PackIcon Kind=CheckNetworkOutline}"  Click="SwithToServerEngineButon_Click" ></Button>-->
+      <!--<Button Name="SwithToLocalEngineButon"  Content="{materialDesign:PackIcon Kind=Network}"  Click="SwithToLocalEngineButon_Click" ></Button>-->
+      <Button Name="ChoseWhiteForCoputerButon"  Content="{materialDesign:PackIcon Kind=RobotOutline}"  Click="ChoseWhiteForCoputerButon_Click" ></Button>
+      <Button Name="ChoseBlackForCoputerButon" Content="{materialDesign:PackIcon Kind=Robot}"   Click="ChoseBlackForCoputerButon_Click" ></Button>
+      <Button Name="DisconnetDataBaseButon" Content="{materialDesign:PackIcon Kind=DatabaseCheck}" ToolTip="Déconnecter de la base"   Click="DisconnectDataBaseButon_Click" ></Button>
+      <Button Name="ConnetDataBaseButon" Content="{materialDesign:PackIcon Kind=DatabaseRemove}" ToolTip="Connecter de la base"   Click="ConnectDataBaseButon_Click" ></Button>
+      <Button Content="LOAD DB" Name="LoadButton"  Click="loadButton_Click" ></Button>
+      <ComboBox Width="180" Height="30"  Name="GamePartComboBox" SelectionChanged="GamePartComboBox_SelectionChanged"  DisplayMemberPath ="GamePartLabel"></ComboBox>
+      <Button Content="SAVE" Name="SaveButton"  Click="saveButton_Click" ></Button>
+      <Button Content="loadeFile" Name="loadeFileButton"  Click="loadeFileButtonButton_Click" ></Button>
+      <Button Content="White" Name="WhiteFirstButon"  Click="WhiteFirstButon_Click" ></Button>
+      <Button Content="Black" Name="BlackFirstButon"  Click="BlackFirstButon_Click" ></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=PreviousTitle}" Name="PreviousButon"  Click="PreviousButon_Click" ToolTip="Previous" ></Button>
+      <!--<Button  Content="GRAPHE" Name="GrapheButon"  Click="GrapheButon_Click" ></Button>-->
+      <Label Width="25" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TurnNumberLabel"></Label>
+      <Button  Content="{materialDesign:PackIcon Kind=NextTitle}" Name="NextButon" Click="NextButon_Click" ToolTip="Next" ></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=Camera}" Name="CameratButon" Click="CameratButon_Click" ToolTip="Print" ></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=HexagramOutline}"  Name="SaveBestPostionsForButon" Click="SaveBestPostionsForButon_Click" ToolTip="Save bestPostionsFor" ></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=Hexagram}"  Name="DeleteBestPostionsForButon" Click="DeleteBestPostionsForButon_Click" ToolTip="Delete bestPostionsFor" ></Button>
+    </StackPanel>
+    <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Vertical" HorizontalAlignment="Right">
+      <Button Content="{materialDesign:PackIcon Kind=Broom}" Width="25" Height="25" Click="ClearLogButon_Click" ToolTip="Clear log"></Button>
+      <!--<ProgressBar DockPanel.Dock="Bottom" Height="18" Name="pbCalculationProgress" />-->
+
+
+
+
+
+    </StackPanel>
+    <StackPanel Orientation="Vertical"  Grid.Row="1" Grid.Column="2"   Grid.RowSpan="2" Margin="0,0,0,0"  >
+      <!--<Label Name="lbInfo" Height="50"></Label>-->
+      <Button x:Name="SaveFilesToDBButton" Height="25" Width="35" Content="{materialDesign:PackIcon Kind=DatabaseSync}" ToolTip="Saves All histories files to DB" Click="SaveHistoriesFilesToDBAndCleanHistoriesFolderButton_Click" ></Button>
+      <ScrollViewer x:Name="ScrollViewerDebugTextBlock"  Height="700" >
+        <TextBlock  Name="DebugTextBlock"  ></TextBlock>
+      </ScrollViewer>
+      <Button Grid.Row="2" Width="50"  Name="SaveHistoryToFileButton" ToolTip="Save history to file"  Content="{materialDesign:PackIcon Kind=Download}" Click="SaveToHistoryTXTButton_Click" Visibility="Collapsed" ></Button>
+
+      <!--<ScrollViewer Height="400">
+        <TextBlock  Name="DebugTextBlock2" ></TextBlock>
+      </ScrollViewer>-->
+    </StackPanel>
+    <StackPanel Grid.Row="1" Grid.Column="1" Width="714" >
+      <StackPanel Orientation="Horizontal" >
+        <Separator Background="Transparent" Width="73"></Separator>
+        <Button x:Name="HumanTurnIndication" Content="{materialDesign:PackIcon Kind=Account}" ></Button>
+        <Button x:Name="CpuTurnIndication"  Content="{materialDesign:PackIcon Kind=EmojiRobotConfusedOutline}" ></Button>
+        <ProgressBar x:Name="ProgressBarCpuTurnIndication" Height="13" Visibility="Hidden" BorderBrush="AliceBlue"  Width="170" IsIndeterminate="True"/>
+        <Separator Background="Transparent" Width="15"></Separator>
+        <Label Content="Black Time : "></Label>
+        <Label Name="lbBlackTime" Width="100"></Label>
+        <Label Content="White Time : "></Label>
+        <Label Name="lbWhiteTime" Width="82"></Label>
+         <Label Content="CPU reflection Time : " Visibility="Hidden"></Label>
+        <Label Name="lbCPUReflectionTime" Width="153" Visibility="Hidden" ></Label>
+
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" >
+        <Label Content="Deep level: "></Label>
+        <RadioButton x:Name="RadioButtonDeepLevel1" Checked="RadioButtonDeepLevel_Checked" VerticalAlignment="Center" Content="1"></RadioButton>
+        <RadioButton Margin="15 0 0 0" x:Name="RadioButtonDeepLevel2" Checked="RadioButtonDeepLevel_Checked" VerticalAlignment="Center" Content="2"></RadioButton>
+        <RadioButton Margin="15 0 0 0" x:Name="RadioButtonDeepLevel3" Checked="RadioButtonDeepLevel_Checked" VerticalAlignment="Center" Content="3"></RadioButton>
+        <RadioButton Margin="15 0 0 0" x:Name="RadioButtonDeepLevel4" Checked="RadioButtonDeepLevel_Checked" VerticalAlignment="Center" Content="4"></RadioButton>
+        <RadioButton Margin="15 0 0 0" x:Name="RadioButtonDeepLevel5" Checked="RadioButtonDeepLevel_Checked" VerticalAlignment="Center" Content="5"></RadioButton>
+        <Separator Background="Transparent" Width="20"></Separator>
+        <Label Content="Black score : "></Label>
+        <Label Name="lbBlackScore" Width="100"></Label>
+        <Label Content="White score : "></Label>
+        <Label Name="lbWhiteScore" Width="100"></Label>
+        
+       
+      </StackPanel>
+
+    </StackPanel>
+
+
+
+    <Grid  Grid.Row="2" Grid.Column="1" Height="700" Width="725" x:Name="ChessBoardGrid">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="50"></RowDefinition>
+
+
+      </Grid.RowDefinitions>
+      <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button Grid.Row="0" Grid.Column="2" Width="25" Height="25" Background="IndianRed"  Content="{materialDesign:PackIcon Kind=TimerOutline}" Name="BlackTurnButton"></Button>
+
+        <Button Height="40" Width="40" Name="SimplePawnWhiteDeadButton"  ></Button>
+        <Label Height="50" Width="50" Name="SimplePawnWhiteDeadNumberLabel"    ></Label>
+        <Button Height="40" Width="40" Name="BishopWhiteDeadButton"  ></Button>
+        <Label Height="50" Width="50" Name="BishopWhiteDeadNumberLabel"  ></Label>
+        <Button Height="40" Width="40" Name="KnightWhiteDeadButton"  ></Button>
+        <Label Height="50" Width="50" Name="KnightWhiteDeadNumberLabel"  ></Label>
+        <Button Height="40" Width="40" Name="RookWhiteDeadButton"  ></Button>
+        <Label Height="50" Width="50" Name="RookWhiteDeadNumberLabel"  ></Label>
+        <Button Height="40" Width="40" Name="QueenWhiteDeadButton"  ></Button>
+        <Label Height="50" Width="50" Name="QueenWhiteDeadNumberLabel"  ></Label>
+        <Label  Name="BlackPointLabel" FontSize="25" FontWeight="Bold"  ></Label>
+      </StackPanel>
+
+      <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="30"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button  Grid.Column="1" Grid.Row="7"  Name="a1"  ></Button>
+        <Button  Grid.Column="1" Grid.Row="6"  Name="a2" ></Button>
+        <Button  Grid.Column="1" Grid.Row="5"  Name="a3" ></Button>
+        <Button  Grid.Column="1" Grid.Row="4"  Name="a4" ></Button>
+        <Button  Grid.Column="1" Grid.Row="3"  Name="a5" ></Button>
+        <Button  Grid.Column="1" Grid.Row="2"  Name="a6" ></Button>
+        <Button  Grid.Column="1" Grid.Row="1"  Name="a7" ></Button>
+        <Button   Grid.Column="1" Grid.Row="0"  Name="a8" />
+        <Button  Grid.Column="2" Grid.Row="7"  Name="b1"></Button>
+        <Button  Grid.Column="2" Grid.Row="6"  Name="b2" ></Button>
+        <Button  Grid.Column="2" Grid.Row="5"  Name="b3" ></Button>
+        <Button  Grid.Column="2" Grid.Row="4"  Name="b4" ></Button>
+        <Button  Grid.Column="2" Grid.Row="3"  Name="b5" ></Button>
+        <Button  Grid.Column="2" Grid.Row="2"  Name="b6" ></Button>
+        <Button  Grid.Column="2" Grid.Row="1"  Name="b7" ></Button>
+        <Button  Grid.Column="2" Grid.Row="0"  Name="b8"  ></Button>
+        <Button  Grid.Column="3" Grid.Row="7"  Name="c1"></Button>
+        <Button  Grid.Column="3" Grid.Row="6"  Name="c2" ></Button>
+        <Button  Grid.Column="3" Grid.Row="5"  Name="c3" ></Button>
+        <Button  Grid.Column="3" Grid.Row="4"  Name="c4" ></Button>
+        <Button  Grid.Column="3" Grid.Row="3"  Name="c5" ></Button>
+        <Button  Grid.Column="3" Grid.Row="2"  Name="c6" ></Button>
+        <Button  Grid.Column="3" Grid.Row="1"  Name="c7" ></Button>
+        <Button  Grid.Column="3" Grid.Row="0"  Name="c8" ></Button>
+
+        <Button  Grid.Column="4" Grid.Row="7"  Name="d1"></Button>
+        <Button  Grid.Column="4" Grid.Row="6"  Name="d2" ></Button>
+        <Button  Grid.Column="4" Grid.Row="5"  Name="d3" ></Button>
+        <Button  Grid.Column="4" Grid.Row="4"  Name="d4" ></Button>
+        <Button  Grid.Column="4" Grid.Row="3"  Name="d5" ></Button>
+        <Button  Grid.Column="4" Grid.Row="2"  Name="d6" ></Button>
+        <Button  Grid.Column="4" Grid.Row="1"  Name="d7" ></Button>
+        <Button  Grid.Column="4" Grid.Row="0"  Name="d8" ></Button>
+
+        <Button  Grid.Column="5" Grid.Row="7"  Name="e1"></Button>
+        <Button  Grid.Column="5" Grid.Row="6"  Name="e2" ></Button>
+        <Button  Grid.Column="5" Grid.Row="5"  Name="e3" ></Button>
+        <Button  Grid.Column="5" Grid.Row="4"  Name="e4" ></Button>
+        <Button  Grid.Column="5" Grid.Row="3"  Name="e5" ></Button>
+        <Button  Grid.Column="5" Grid.Row="2"  Name="e6" ></Button>
+        <Button  Grid.Column="5" Grid.Row="1"  Name="e7" ></Button>
+        <Button  Grid.Column="5" Grid.Row="0"  Name="e8" ></Button>
+
+        <Button  Grid.Column="6" Grid.Row="7"  Name="f1"></Button>
+        <Button  Grid.Column="6" Grid.Row="6"  Name="f2" ></Button>
+        <Button  Grid.Column="6" Grid.Row="5"  Name="f3" ></Button>
+        <Button  Grid.Column="6" Grid.Row="4"  Name="f4" ></Button>
+        <Button  Grid.Column="6" Grid.Row="3"  Name="f5" ></Button>
+        <Button  Grid.Column="6" Grid.Row="2"  Name="f6" ></Button>
+        <Button  Grid.Column="6" Grid.Row="1"  Name="f7" ></Button>
+        <Button  Grid.Column="6" Grid.Row="0"  Name="f8" ></Button>
+
+        <Button  Grid.Column="7" Grid.Row="7"  Name="g1"></Button>
+        <Button  Grid.Column="7" Grid.Row="6"  Name="g2" ></Button>
+        <Button  Grid.Column="7" Grid.Row="5"  Name="g3" ></Button>
+        <Button  Grid.Column="7" Grid.Row="4"  Name="g4" ></Button>
+        <Button  Grid.Column="7" Grid.Row="3"  Name="g5" ></Button>
+        <Button  Grid.Column="7" Grid.Row="2"  Name="g6" ></Button>
+        <Button  Grid.Column="7" Grid.Row="1"  Name="g7" ></Button>
+        <Button  Grid.Column="7" Grid.Row="0"  Name="g8" ></Button>
+
+        <Button  Grid.Column="8" Grid.Row="7"  Name="h1"></Button>
+        <Button  Grid.Column="8" Grid.Row="6"  Name="h2" ></Button>
+        <Button  Grid.Column="8" Grid.Row="5"  Name="h3" ></Button>
+        <Button  Grid.Column="8" Grid.Row="4"  Name="h4" ></Button>
+        <Button  Grid.Column="8" Grid.Row="3"  Name="h5" ></Button>
+        <Button  Grid.Column="8" Grid.Row="2"  Name="h6" ></Button>
+        <Button  Grid.Column="8" Grid.Row="1"  Name="h7" ></Button>
+        <Button  Grid.Column="8" Grid.Row="0"  Name="h8" ></Button>
+
+
+        <Label Name="Label8" Height="100" Width="30" Grid.Column="0" Grid.Row="0"  Content="8" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label7" Height="100" Width="30" Grid.Column="0" Grid.Row="1"  Content="7" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label6" Height="100" Width="30" Grid.Column="0" Grid.Row="2"  Content="6" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label5" Height="100" Width="30" Grid.Column="0" Grid.Row="3"  Content="5" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label4" Height="100" Width="30" Grid.Column="0" Grid.Row="4"  Content="4" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label3" Height="100" Width="30" Grid.Column="0" Grid.Row="5"  Content="3" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label2" Height="100" Width="30" Grid.Column="0" Grid.Row="6"  Content="2" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+        <Label Name="Label1" Height="100" Width="30" Grid.Column="0" Grid.Row="7"  Content="1" FontSize="40" VerticalContentAlignment="Center"  ></Label>
+
+        <Label Name="LabelA" Grid.Column="1" Grid.Row="8"  Content="a" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelB" Grid.Column="2" Grid.Row="8"  Content="b" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelC" Grid.Column="3" Grid.Row="8"  Content="c" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelD" Grid.Column="4" Grid.Row="8"  Content="d" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelE" Grid.Column="5" Grid.Row="8"  Content="e" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelF" Grid.Column="6" Grid.Row="8"  Content="f" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelG" Grid.Column="7" Grid.Row="8"  Content="g" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"   />
+        <Label Name="LabelH" Grid.Column="8" Grid.Row="8"  Content="h" FontSize="40" VerticalContentAlignment="Top" HorizontalAlignment="Center"  />
+
+
+      </Grid>
+      <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+          <Button Grid.Row="4" Grid.Column="2" Width="25" Height="25" Background="IndianRed" Content="{materialDesign:PackIcon Kind=TimerOutline}" Name="WhiteTurnButton"></Button>
+
+          <Button Height="40" Width="40" Name="SimplePawnBlackDeadButton"  ></Button>
+          <Label Height="50" Width="50" Name="SimplePawnBlackDeadNumberLabel"  ></Label>
+          <Button Height="40" Width="40" Name="BishopBlackDeadButton"  ></Button>
+          <Label Height="50" Width="50" Name="BishopBlackDeadNumberLabel"  ></Label>
+          <Button Height="40" Width="40" Name="KnightBlackDeadButton"  ></Button>
+          <Label Height="50" Width="50" Name="KnightBlackDeadNumberLabel"  ></Label>
+          <Button Height="40" Width="40" Name="RookBlackDeadButton"  ></Button>
+          <Label Height="50" Width="50" Name="RookBlackDeadNumberLabel"  ></Label>
+          <Button Height="40" Width="40" Name="QueenBlackDeadButton"  ></Button>
+          <Label Height="50" Width="50" Name="QueenBlackDeadNumberLabel"  ></Label>
+          <Label  Name="WhitePointLabel" FontSize="25" FontWeight="Bold" ></Label>
+        </StackPanel>
+
+      </StackPanel>
+
+    </Grid>
+
+
+    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical" >
+      <Button x:Name="BlackRunEngineButton"  Content="{materialDesign:PackIcon Kind=Robot}" Width="25" Height="25" ToolTip="search" Click="RunEngineForBlack_Click" ></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=EmoticonDead}" Width="25" Height="25" ToolTip="Give up" Click="BlackGiveUp_Click" ></Button>
+
+    </StackPanel>
+    <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0">
+      <Button x:Name="WhiteRunEngineButton" Content="{materialDesign:PackIcon Kind=RobotOutline}" Width="25" Height="25" ToolTip="search" Click="RunEngineForWhite_Click"></Button>
+      <Button  Content="{materialDesign:PackIcon Kind=EmoticonDeadOutline}" Width="25" Height="25" ToolTip="Give up" Click="WhiteGiveUp_Click"></Button>
+    </StackPanel>
+
+  </Grid>
+</Window>

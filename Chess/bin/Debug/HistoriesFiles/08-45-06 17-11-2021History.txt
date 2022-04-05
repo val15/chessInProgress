@@ -1,0 +1,3 @@
+White:	Pawn	g2 => g4
+Black:	Knight	b8 => a6
+White:	Pawn	g4 => g5

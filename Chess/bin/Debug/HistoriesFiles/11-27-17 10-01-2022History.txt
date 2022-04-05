@@ -1,0 +1,2 @@
+
+Black:	Queen	b5 => e2

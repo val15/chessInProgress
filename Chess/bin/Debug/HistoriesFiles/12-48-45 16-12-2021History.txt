@@ -1,0 +1,4 @@
+
+White:	Pawn	g2 => g3
+Black:	Rook	a8 => a5
+White:	Pawn	b4 => a5

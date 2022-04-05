@@ -1,0 +1,2 @@
+White:	Pawn	g2 => g4
+Black:	Pawn	g7 => g6
