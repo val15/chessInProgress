@@ -1,6 +1,0 @@
-White:	Pawn	f2 => f4
-Black:	Pawn	e7 => e5
-White:	Pawn	f4 => e5
-Black:	Pawn	g7 => g6
-White:	Pawn	a2 => a4
-Black:	Pawn	f7 => f6

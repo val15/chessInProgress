@@ -1,5 +1,0 @@
-Black:	Knight	b8 => c6
-White:	Knight	g1 => f3
-Black:	Pawn	f7 => f6
-White:	Knight	f3 => g5
-Black:	Pawn	f6 => g5

@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chess.exe" size="611752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chess.exe" size="610816">
       <assemblyIdentity name="Chess" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+ClEo5e+pvC/NrOdY40dSn60NpUdomfzX2amdm3FWYE=</dsig:DigestValue>
+        <dsig:DigestValue>+OsFzSSPwi4iKN+USz3iwNvkEun5+H5wVb8uJ9Kh818=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+avoCRv2IWpvy3n+PINVWpOcxGyX354OOrOdoIAkwhA=</dsig:DigestValue>
+        <dsig:DigestValue>/iSNMdkUpekqfvo2Jj4dm0AK4HYyuG29mJvLRHivgO4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

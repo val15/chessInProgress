@@ -1,2 +1,0 @@
-
-Black:	Knight	g8 => f6

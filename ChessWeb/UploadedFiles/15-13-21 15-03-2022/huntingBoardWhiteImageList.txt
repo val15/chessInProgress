@@ -1,8 +1,0 @@
-../../Images/BishopWhite.png
-../../Images/BishopWhite.png
-../../Images/SimplePawnWhite.png
-../../Images/RookWhite.png
-../../Images/KnightWhite.png
-../../Images/SimplePawnWhite.png
-../../Images/SimplePawnWhite.png
-../../Images/RookWhite.png

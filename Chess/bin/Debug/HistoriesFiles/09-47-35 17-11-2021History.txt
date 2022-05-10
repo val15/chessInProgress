@@ -1,1 +1,0 @@
-White:	Pawn	g2 => g4

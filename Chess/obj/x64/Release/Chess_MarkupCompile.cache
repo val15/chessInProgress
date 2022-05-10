@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\inProgress\RANDRENARIZO\Chess\Chess\Chess\obj\x64\Release\
+D:\tsiry\inProgressMM\chessInProgress\Chess\obj\x64\Release\
 Chess
 none
 false
 TRACE
-D:\inProgress\RANDRENARIZO\Chess\Chess\Chess\App.xaml
+D:\tsiry\inProgressMM\chessInProgress\Chess\App.xaml
 3497157615
 21-1111152371
 26-663044372
-33-1286096568
+33-576316539
 View\MainWindow.xaml;View\RiseInRankWindow.xaml;View\SaveBestPositionsFofWindow.xaml;
 
 True

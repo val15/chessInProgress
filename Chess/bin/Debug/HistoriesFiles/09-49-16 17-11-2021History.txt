@@ -1,3 +1,0 @@
-White:	Pawn	h2 => h3
-Black:	Pawn	e7 => e6
-White:	Pawn	h3 => h4

@@ -1,1 +1,0 @@
-White:	Knight	g1 => f3

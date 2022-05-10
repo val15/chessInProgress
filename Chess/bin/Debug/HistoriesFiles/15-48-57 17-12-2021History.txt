@@ -1,5 +1,0 @@
-White:	Pawn	f2 => f3
-Black:	Pawn	g7 => g5
-White:	Pawn	a2 => a3
-Black:	Pawn	f7 => f5
-White:	Pawn	b2 => b3

@@ -1,3 +1,0 @@
-White:	Knight	g1 => h3
-Black:	Pawn	f7 => f5
-White:	Pawn	g2 => g3

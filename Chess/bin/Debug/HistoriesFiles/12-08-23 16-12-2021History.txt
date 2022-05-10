@@ -1,4 +1,0 @@
-49(P|W)>41(__)
-White:	Pawn	d2 => d3
-White:	Pawn	e2 => e3
-White:	Pawn	c2 => c3
