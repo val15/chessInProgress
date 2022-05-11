@@ -221,3 +221,4 @@ D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Deb
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.exe
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.pdb
+D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.AssemblyReference.cache
