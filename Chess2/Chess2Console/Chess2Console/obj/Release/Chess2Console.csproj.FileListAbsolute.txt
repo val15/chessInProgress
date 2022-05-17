@@ -307,3 +307,4 @@ D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Rel
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Release\Chess2Console.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Release\Chess2Console.exe
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Release\Chess2Console.pdb
+D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Release\Chess2Console.csproj.SuggestedBindingRedirects.cache

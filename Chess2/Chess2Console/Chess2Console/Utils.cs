@@ -74,7 +74,46 @@ namespace Chess2Console
       }
       return name;
     }
-    public static int GetIndexFromLocation(string index)
+
+        /*tsiry;16-05-2022
+         * */
+
+        public static string ChangeShortNameToLongName(string shortName)
+        {
+            var name = "Pawn";
+            //Pawn
+            //SimplePawn => P
+            //Knight => C
+            //Bishop => B
+            //Rook => T
+            //Queen => Q
+            //King => K
+
+            //Color
+            //Black => B
+            //White => W
+            switch (shortName)
+            {
+                case "C":
+                    name = "Knight";
+                    break;
+                case "B":
+                    name = "Bishop";
+                    break;
+                case "T":
+                    name = "Rook";
+                    break;
+                case "Q":
+                    name = "Queen";
+                    break;
+                case "K":
+                    name = "King";
+                    break;
+            }
+            return name;
+        }
+
+        public static int GetIndexFromLocation(string index)
     {
       return _coord.ToList().IndexOf(index);
     }

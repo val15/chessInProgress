@@ -2998,23 +2998,41 @@ namespace Chess
       /* if (HistoricalBlackList.Count == 0 && HistoricalWhiteList.Count == 0)
          LoadOld("Old");
        else*/
-      Previous();
+      PreviousFromDB();
 
     }
 
     private void NextButon_Click(object sender, RoutedEventArgs e)
     {
 
-      Next();
+      NextFromDB();
 
     }
+        /*tsiry;28-05-2021
+    * implementation de l'historique
+    * en utilisant Hisyory.txt
+    * */
+
+        public void PreviousFromHistoryFile()
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
 
     /*tsiry;28-05-2021
  * implementation de l'historique
  * en utilisant la base
  * */
 
-    public void Next()
+    public void NextFromDB()
     {
       try
       {
@@ -3058,7 +3076,7 @@ namespace Chess
      * en utilisant la base
      * */
 
-    public void Previous()
+    public void PreviousFromDB()
     {
 
       try
@@ -3715,14 +3733,15 @@ namespace Chess
       try
       {
         var readText = File.ReadAllText("./History.txt");
-
+        if (readText.Contains("("))// si History.txt contient un (
+            readText = Chess2Utils.HistoryWebToHistoryApp(readText);
         DebugTextBlock.Text = "";
         DebugTextBlock.Text = readText;
 
-        CreateHistoryFile();
+                CreateHistoryFileAndWrite(readText);
         //System.GC.Collect();
         // GC.WaitForPendingFinalizers();
-        File.AppendAllText(_partHistoryDestinationFileFullPath, readText);
+        
 
         var numberOfTurn = readText.Count(x => x == '\n');
 
@@ -3964,7 +3983,45 @@ namespace Chess
       Rotate();
     }
 
-    private void CreateHistoryFile()
+        private void CreateHistoryFileAndWrite(string readText)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(_partHistoryDestinationFileFullPath))
+                    return;
+
+                //_serviceChessDB.CreateNewGamePart($"Part {DateTime.Now.ToString("HH-mm-ss dd-MM-yyyy")}", DateTime.Now, _mode);
+                var dateTimeString = DateTime.Now.ToString("HH-mm-ss dd-MM-yyyy");
+                _partHistoryDestinationFileFullPath = Path.Combine(_destinationHistoryFolderPath, $"{dateTimeString}History.txt");
+
+                if (File.Exists(_partHistoryDestinationFileFullPath))
+                    File.Delete(_partHistoryDestinationFileFullPath);
+
+                using (StreamWriter sw = File.CreateText(_partHistoryDestinationFileFullPath))
+                {
+                    var line = "";
+                    using (var sr = new StringReader(readText))
+                    {
+
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+
+                }
+
+                // File.AppendAllText(_partHistoryDestinationFileFullPath, );
+
+            }
+            catch (Exception ex)
+            {
+
+                WriteInLog(ex.ToString());
+            }
+        }
+
+        private void CreateHistoryFile()
     {
       try
       {
@@ -3975,6 +4032,8 @@ namespace Chess
         var dateTimeString = DateTime.Now.ToString("HH-mm-ss dd-MM-yyyy");
         _partHistoryDestinationFileFullPath = Path.Combine(_destinationHistoryFolderPath, $"{dateTimeString}History.txt");
         File.Create(_partHistoryDestinationFileFullPath);
+
+                
       }
       catch (Exception ex)
       {

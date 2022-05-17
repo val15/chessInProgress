@@ -217,8 +217,9 @@ D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\bin\Deb
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\bin\Debug\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\bin\Debug\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.AssemblyReference.cache
+D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.SuggestedBindingRedirects.cache
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.CoreCompileInputs.cache
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.exe
 D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.pdb
-D:\tsiry\inProgressMM\chessInProgress\Chess2\Chess2Console\Chess2Console\obj\Debug\Chess2Console.csproj.AssemblyReference.cache

@@ -222,6 +222,7 @@ D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\Images\SimplePawnBlack.png
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\Images\SimplePawnWhite.png
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\LogsFiles\TextFile1.txt
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\Utils\SimplePawn.png
+D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\UploadedFiles\toStay.txt
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\ChessWeb.dll.config
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\ChessWeb.dll
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\ChessWeb.pdb
@@ -382,4 +383,3 @@ D:\tsiry\inProgressMM\chessInProgress\ChessWeb\obj\Debug\ChessWeb.csproj.CoreCom
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\obj\Debug\ChessWeb.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\obj\Debug\ChessWeb.dll
 D:\tsiry\inProgressMM\chessInProgress\ChessWeb\obj\Debug\ChessWeb.pdb
-D:\tsiry\inProgressMM\chessInProgress\ChessWeb\bin\UploadedFiles\toStay.txt

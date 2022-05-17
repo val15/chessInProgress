@@ -240,6 +240,7 @@ D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\bin\Debug\tr\Microsoft.C
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\bin\Debug\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\obj\Debug\BenchChessConsole.csproj.AssemblyReference.cache
+D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\obj\Debug\BenchChessConsole.csproj.SuggestedBindingRedirects.cache
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\obj\Debug\BenchChessConsole.csproj.CoreCompileInputs.cache
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\obj\Debug\BenchChessConsole.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\BenchChessConsole\obj\Debug\BenchChessConsole.exe

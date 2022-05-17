@@ -772,3 +772,4 @@ D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.application
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.exe
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.pdb
+D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.SuggestedBindingRedirects.cache

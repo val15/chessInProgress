@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\tsiry\inProgressMM\chessInProgress\BIM\ChessWeb</_PublishTargetUrl>
-    <History>True|2022-05-11T10:42:23.6803671Z;</History>
+    <History>True|2022-05-17T07:30:51.0987864Z;True|2022-05-11T13:42:23.6803671+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/amd64/KernelTraceControl.dll">
@@ -36,28 +36,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/10/2022 10:35:12</publishTime>
     </File>
     <File Include="bin/Chess.exe">
-      <publishTime>05/10/2022 10:58:22</publishTime>
+      <publishTime>05/17/2022 10:30:41</publishTime>
     </File>
     <File Include="bin/Chess.exe.config">
       <publishTime>05/10/2022 10:34:50</publishTime>
     </File>
     <File Include="bin/Chess.pdb">
-      <publishTime>05/10/2022 10:58:22</publishTime>
+      <publishTime>05/17/2022 10:30:41</publishTime>
     </File>
     <File Include="bin/Chess2Console.exe">
-      <publishTime>05/10/2022 10:58:12</publishTime>
+      <publishTime>05/17/2022 10:30:34</publishTime>
     </File>
     <File Include="bin/Chess2Console.exe.config">
       <publishTime>05/10/2022 10:35:00</publishTime>
     </File>
     <File Include="bin/Chess2Console.pdb">
-      <publishTime>05/10/2022 10:58:12</publishTime>
+      <publishTime>05/17/2022 10:30:34</publishTime>
     </File>
     <File Include="bin/ChessWeb.dll">
-      <publishTime>05/11/2022 13:41:58</publishTime>
+      <publishTime>05/17/2022 10:30:43</publishTime>
     </File>
     <File Include="bin/ChessWeb.pdb">
-      <publishTime>05/11/2022 13:41:58</publishTime>
+      <publishTime>05/17/2022 10:30:43</publishTime>
     </File>
     <File Include="bin/CommandLine.dll">
       <publishTime>05/10/2022 10:35:12</publishTime>

@@ -14787,7 +14787,7 @@ namespace Chess.Test
         //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
         //Assert.IsNull(randomList);
         //echec si nodeResult.Location ==  nodeResult.BestChildPosition
-        Assert.AreEqual(nodeResult.BestChildPosition, "a8");
+        Assert.AreEqual("f3", nodeResult.BestChildPosition);
       }
     }
     /*tsiry;11-01-2022
@@ -14994,408 +14994,467 @@ namespace Chess.Test
     }
 
 
-    /*tsiry;28-10-2021*/
-    /*[TestMethod]
-    public void  MTT75LeCavalierNoirDoitPrendreLePionEnB5()
-    {
-      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
-
-      mainWindow.ComputerColore = "Black";
-
-
-
-
-      mainWindow.CleanPawnList();
-      var pawnListWhite = new List<Pawn>();
-      var pawnListBlack = new List<Pawn>();
-
-
-
-      //WHITEList
-      var whiteListString = "" +
-"King;g1;White;False;True;True;True"+
-"\nQueen;f3;White;False;False;False;False"+
-"\nRook;a1;White;False;False;False;False"+
-"\nRook;d1;White;False;False;False;False"+
-"\nKnight;e2;White;False;False;False;False"+
-"\nBishop;c1;White;False;False;False;False"+
-"\nKnight;e5;White;False;False;False;False"+
-"\nSimplePawn;b5;White;True;False;False;False"+
-"\nSimplePawn;c2;White;True;False;False;False"+
-"\nSimplePawn;d5;White;True;False;False;False"+
-"\nSimplePawn;f2;White;True;False;False;False"+
-"\nSimplePawn;g3;White;True;False;False;False"+
-"\nSimplePawn;h2;White;True;False;False;False";
-
-      ;
-      var whiteList = whiteListString.Split('\n');
-      foreach (var line in whiteList)
-      {
-        var datas = line.Split(';');
-        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-        newPawn.IsFirstMove = bool.Parse(datas[3]);
-        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-        pawnListWhite.Add(newPawn);
-      }
-
-      //BLACKList
-      var blackListString = "" +
-"King;e8;Black;False;True;True;True"+
-"\nQueen;d8;Black;False;False;False;False"+
-"\nRook;a8;Black;False;False;False;False"+
-"\nRook;h8;Black;False;False;False;False"+
-"\nBishop;b7;Black;False;False;False;False"+
-"\nBishop;f8;Black;False;False;False;False"+
-"\nKnight;d6;Black;False;False;False;False"+
-"\nSimplePawn;a7;Black;True;False;False;False"+
-"\nSimplePawn;c7;Black;True;False;False;False"+
-"\nSimplePawn;d7;Black;True;False;False;False"+
-"\nSimplePawn;e7;Black;True;False;False;False"+
-"\nSimplePawn;f7;Black;True;False;False;False"+
-"\nSimplePawn;g7;Black;True;False;False;False"+
-"\nSimplePawn;h6;Black;True;False;False;False";
-      var blackList = blackListString.Split('\n');
-      foreach (var line in blackList)
-      {
-        var datas = line.Split(';');
-        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-        newPawn.IsFirstMove = bool.Parse(datas[3]);
-        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-        pawnListBlack.Add(newPawn);
-      }
-
-
-
-      mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
-      var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
-
-      var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
-      //Assert.IsNull(randomList);
-
-      Assert.AreEqual(nodeResult.BestChildPosition, "b5");
-    }
-
-    [TestMethod]
-    public void  MTT76LeCavalierNoirEnD6DoitBouger()
-    {
-      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
-
-      mainWindow.ComputerColore = "Black";
-
-
-
-
-      mainWindow.CleanPawnList();
-      var pawnListWhite = new List<Pawn>();
-      var pawnListBlack = new List<Pawn>();
-
-
-
-      //WHITEList
-      var whiteListString = "" +
-"King;g1;White;False;True;True;True"+
-"\nQueen;f3;White;False;False;False;False"+
-"\nRook;a1;White;False;False;False;False"+
-"\nRook;d1;White;False;False;False;False"+
-"\nKnight;e2;White;False;False;False;False"+
-"\nBishop;c1;White;False;False;False;False"+
-"\nKnight;e5;White;False;False;False;False"+
-"\nSimplePawn;b5;White;True;False;False;False"+
-"\nSimplePawn;c5;White;True;False;False;False"+
-"\nSimplePawn;d5;White;True;False;False;False"+
-"\nSimplePawn;f2;White;True;False;False;False"+
-"\nSimplePawn;g3;White;True;False;False;False"+
-"\nSimplePawn;h2;White;True;False;False;False";
-
-      ;
-      var whiteList = whiteListString.Split('\n');
-      foreach (var line in whiteList)
-      {
-        var datas = line.Split(';');
-        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-        newPawn.IsFirstMove = bool.Parse(datas[3]);
-        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-        pawnListWhite.Add(newPawn);
-      }
-
-      //BLACKList
-      var blackListString = "" +
-"King;e8;Black;False;True;True;True"+
-"\nQueen;d8;Black;False;False;False;False"+
-"\nRook;a8;Black;False;False;False;False"+
-"\nRook;h8;Black;False;False;False;False"+
-"\nBishop;b7;Black;False;False;False;False"+
-"\nBishop;f8;Black;False;False;False;False"+
-"\nKnight;d6;Black;False;False;False;False"+
-"\nSimplePawn;a7;Black;True;False;False;False"+
-"\nSimplePawn;c7;Black;True;False;False;False"+
-"\nSimplePawn;d7;Black;True;False;False;False"+
-"\nSimplePawn;e7;Black;True;False;False;False"+
-"\nSimplePawn;f7;Black;True;False;False;False"+
-"\nSimplePawn;g7;Black;True;False;False;False"+
-"\nSimplePawn;h6;Black;True;False;False;False";
-      var blackList = blackListString.Split('\n');
-      foreach (var line in blackList)
-      {
-        var datas = line.Split(';');
-        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-        newPawn.IsFirstMove = bool.Parse(datas[3]);
-        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-        pawnListBlack.Add(newPawn);
-      }
-
-
-
-      mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
-      var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
-
-      var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
-      //Assert.IsNull(randomList);
-
-      Assert.AreEqual(nodeResult.Location, "d6");
-    }
-    */
-
-    /*  [TestMethod]
-      public void  MTT3300aLePionBlancNeDoitPasPrendreLeCavalier()
-      {
-        //Le pion blanch ne doit pas prendre le cavalier en d4
-
-
-
-        var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
-        mainWindow.ComputerColore = "White";
-        
-         
-        
-        mainWindow.CleanPawnList();
-        var pawnListWhite = new List<Pawn>();
-        var pawnListBlack = new List<Pawn>();
-
-
-
-        //WHITEList
-        var whiteListString = "" +
-         "Rook;h1;White;False;False;False;False" +
-         "\nKnight;g3;White;False;False;False;False" +
-  "\nKnight;g1;White;False;False;False;False" +
-  "\nSimplePawn;h2;White;True;False;False;False"+
-  "\nSimplePawn;e3;White;False;False;False;False";
-        var whiteList = whiteListString.Split('\n');
-        foreach (var line in whiteList)
+        /*tsiry;16-05-2022*/
+        [TestMethod]
+        public void MTT92ALaReineNoirNeDoitPasSeMettreEnC3()
         {
-          var datas = line.Split(';');
-          var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-          //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-          newPawn.IsFirstMove = bool.Parse(datas[3]);
-          newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-          newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-          newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-          pawnListWhite.Add(newPawn);
+
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "Black";
+            var testName = "T92ALaReineNoirNeDoitPasSeMettreEnC3";
+            var testPath = Path.Combine(testsDirrectory, testName);
+            mainWindow.LoadFromDirectorie(testPath);
+            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+            {
+                var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+                //Assert.AreEqual(nodeResult.Location, "g4");
+                Assert.AreNotEqual(nodeResult.BestChildPosition, "c3");
+            }
+            //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+            //Assert.IsNull(randomList);
+            //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
         }
-
-        //BLACKList
-        var blackListString = "" +
-  "Bishop;b7;Black;False;False;False;False" +
-  "\nKnight;d4;Black;False;False;False;False";
-        var blackList = blackListString.Split('\n');
-        foreach (var line in blackList)
+        /*tsiry;17-05-2022*/
+        [TestMethod]
+        public void MTT92BLeCavalierNoirDoitPartieDeF6()
         {
-          var datas = line.Split(';');
-          var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-          //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-          newPawn.IsFirstMove = bool.Parse(datas[3]);
-          newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-          newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-          newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-          pawnListBlack.Add(newPawn);
+
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "Black";
+            var testName = "T92BLeCavalierNoirDoitPartieDeF6";
+            var testPath = Path.Combine(testsDirrectory, testName);
+            mainWindow.LoadFromDirectorie(testPath);
+            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+            {
+                var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+                //Assert.AreEqual(nodeResult.Location, "g4");
+                Assert.AreEqual(nodeResult.Location, "f6");
+            }
+            //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+            //Assert.IsNull(randomList);
+            //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
         }
 
 
-
-        mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
-
-
-        var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
-        //Le poin doit pas se mettre en e3
-        Assert.AreEqual(nodeResult.BestChildPosition, "e4");
+      
 
 
-      }
-
-
-      [TestMethod]
-      public void  MTT3300bLePionBlancDoitPrendreLeCavalier()
-      {
-        //Le pion blanch  doit prendre le cavalier en d4
-
-
-
-        var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
-        mainWindow.ComputerColore = "White";
-        
-         
-        
-        mainWindow.CleanPawnList();
-        var pawnListWhite = new List<Pawn>();
-        var pawnListBlack = new List<Pawn>();
-
-
-
-        //WHITEList
-        var whiteListString = "" +
-  "Knight;g1;White;False;False;False;False" +
-  "\nSimplePawn;e3;White;False;False;False;False";
-        var whiteList = whiteListString.Split('\n');
-        foreach (var line in whiteList)
+        /*tsiry;28-10-2021*/
+        /*[TestMethod]
+        public void  MTT75LeCavalierNoirDoitPrendreLePionEnB5()
         {
-          var datas = line.Split(';');
-          var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-          //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-          newPawn.IsFirstMove = bool.Parse(datas[3]);
-          newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-          newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-          newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-          pawnListWhite.Add(newPawn);
+          var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+
+          mainWindow.ComputerColore = "Black";
+
+
+
+
+          mainWindow.CleanPawnList();
+          var pawnListWhite = new List<Pawn>();
+          var pawnListBlack = new List<Pawn>();
+
+
+
+          //WHITEList
+          var whiteListString = "" +
+    "King;g1;White;False;True;True;True"+
+    "\nQueen;f3;White;False;False;False;False"+
+    "\nRook;a1;White;False;False;False;False"+
+    "\nRook;d1;White;False;False;False;False"+
+    "\nKnight;e2;White;False;False;False;False"+
+    "\nBishop;c1;White;False;False;False;False"+
+    "\nKnight;e5;White;False;False;False;False"+
+    "\nSimplePawn;b5;White;True;False;False;False"+
+    "\nSimplePawn;c2;White;True;False;False;False"+
+    "\nSimplePawn;d5;White;True;False;False;False"+
+    "\nSimplePawn;f2;White;True;False;False;False"+
+    "\nSimplePawn;g3;White;True;False;False;False"+
+    "\nSimplePawn;h2;White;True;False;False;False";
+
+          ;
+          var whiteList = whiteListString.Split('\n');
+          foreach (var line in whiteList)
+          {
+            var datas = line.Split(';');
+            var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+            //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+            newPawn.IsFirstMove = bool.Parse(datas[3]);
+            newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+            newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+            newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+            pawnListWhite.Add(newPawn);
+          }
+
+          //BLACKList
+          var blackListString = "" +
+    "King;e8;Black;False;True;True;True"+
+    "\nQueen;d8;Black;False;False;False;False"+
+    "\nRook;a8;Black;False;False;False;False"+
+    "\nRook;h8;Black;False;False;False;False"+
+    "\nBishop;b7;Black;False;False;False;False"+
+    "\nBishop;f8;Black;False;False;False;False"+
+    "\nKnight;d6;Black;False;False;False;False"+
+    "\nSimplePawn;a7;Black;True;False;False;False"+
+    "\nSimplePawn;c7;Black;True;False;False;False"+
+    "\nSimplePawn;d7;Black;True;False;False;False"+
+    "\nSimplePawn;e7;Black;True;False;False;False"+
+    "\nSimplePawn;f7;Black;True;False;False;False"+
+    "\nSimplePawn;g7;Black;True;False;False;False"+
+    "\nSimplePawn;h6;Black;True;False;False;False";
+          var blackList = blackListString.Split('\n');
+          foreach (var line in blackList)
+          {
+            var datas = line.Split(';');
+            var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+            //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+            newPawn.IsFirstMove = bool.Parse(datas[3]);
+            newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+            newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+            newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+            pawnListBlack.Add(newPawn);
+          }
+
+
+
+          mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
+          var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+          var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+          //Assert.IsNull(randomList);
+
+          Assert.AreEqual(nodeResult.BestChildPosition, "b5");
         }
 
-        //BLACKList
-        var blackListString = "" +
-  "Knight;d4;Black;False;False;False;False" +
-  "\nSimplePawn;b7;Black;True;False;False;False";
-        var blackList = blackListString.Split('\n');
-        foreach (var line in blackList)
+        [TestMethod]
+        public void  MTT76LeCavalierNoirEnD6DoitBouger()
         {
-          var datas = line.Split(';');
-          var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-          //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-          newPawn.IsFirstMove = bool.Parse(datas[3]);
-          newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-          newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-          newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-          pawnListBlack.Add(newPawn);
+          var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+
+          mainWindow.ComputerColore = "Black";
+
+
+
+
+          mainWindow.CleanPawnList();
+          var pawnListWhite = new List<Pawn>();
+          var pawnListBlack = new List<Pawn>();
+
+
+
+          //WHITEList
+          var whiteListString = "" +
+    "King;g1;White;False;True;True;True"+
+    "\nQueen;f3;White;False;False;False;False"+
+    "\nRook;a1;White;False;False;False;False"+
+    "\nRook;d1;White;False;False;False;False"+
+    "\nKnight;e2;White;False;False;False;False"+
+    "\nBishop;c1;White;False;False;False;False"+
+    "\nKnight;e5;White;False;False;False;False"+
+    "\nSimplePawn;b5;White;True;False;False;False"+
+    "\nSimplePawn;c5;White;True;False;False;False"+
+    "\nSimplePawn;d5;White;True;False;False;False"+
+    "\nSimplePawn;f2;White;True;False;False;False"+
+    "\nSimplePawn;g3;White;True;False;False;False"+
+    "\nSimplePawn;h2;White;True;False;False;False";
+
+          ;
+          var whiteList = whiteListString.Split('\n');
+          foreach (var line in whiteList)
+          {
+            var datas = line.Split(';');
+            var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+            //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+            newPawn.IsFirstMove = bool.Parse(datas[3]);
+            newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+            newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+            newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+            pawnListWhite.Add(newPawn);
+          }
+
+          //BLACKList
+          var blackListString = "" +
+    "King;e8;Black;False;True;True;True"+
+    "\nQueen;d8;Black;False;False;False;False"+
+    "\nRook;a8;Black;False;False;False;False"+
+    "\nRook;h8;Black;False;False;False;False"+
+    "\nBishop;b7;Black;False;False;False;False"+
+    "\nBishop;f8;Black;False;False;False;False"+
+    "\nKnight;d6;Black;False;False;False;False"+
+    "\nSimplePawn;a7;Black;True;False;False;False"+
+    "\nSimplePawn;c7;Black;True;False;False;False"+
+    "\nSimplePawn;d7;Black;True;False;False;False"+
+    "\nSimplePawn;e7;Black;True;False;False;False"+
+    "\nSimplePawn;f7;Black;True;False;False;False"+
+    "\nSimplePawn;g7;Black;True;False;False;False"+
+    "\nSimplePawn;h6;Black;True;False;False;False";
+          var blackList = blackListString.Split('\n');
+          foreach (var line in blackList)
+          {
+            var datas = line.Split(';');
+            var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+            //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+            newPawn.IsFirstMove = bool.Parse(datas[3]);
+            newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+            newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+            newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+            pawnListBlack.Add(newPawn);
+          }
+
+
+
+          mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
+          var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+          var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+          //Assert.IsNull(randomList);
+
+          Assert.AreEqual(nodeResult.Location, "d6");
         }
+        */
+
+        /*  [TestMethod]
+          public void  MTT3300aLePionBlancNeDoitPasPrendreLeCavalier()
+          {
+            //Le pion blanch ne doit pas prendre le cavalier en d4
 
 
 
-        mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
-
-
-        var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
-        //Le poin doit  se mettre en d4
-        Assert.AreEqual(nodeResult.BestChildPosition, "d4");
-
-
-      }
-
-      */
-
-    //    [TestMethod]
-    //    public void  MTT33aLePionBlancNeDoitPasPrendreLeCavalier()
-    //    {
-    //      /*Le pion blanch ne doit pas prendre le cavalier en d4*/
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "White";
 
 
 
-    //      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
-    //      mainWindow.ComputerColore = "White";
-
-
-    //      
-    //       
-    //      
-    //      mainWindow.CleanPawnList();
-    //      var pawnListWhite = new List<Pawn>();
-    //      var pawnListBlack = new List<Pawn>();
+            mainWindow.CleanPawnList();
+            var pawnListWhite = new List<Pawn>();
+            var pawnListBlack = new List<Pawn>();
 
 
 
-    //      //WHITEList
-    //      var whiteListString = "" +
-    //       "King;e1;White;False;True;True;True" +
-    //"\nQueen;d1;White;False;False;False;False" +
-    //"\nRook;a1;White;False;False;False;False" +
-    //"\nRook;h1;White;False;False;False;False" +
-    //"\nBishop;c1;White;False;False;False;False" +
-    //"\nKnight;g3;White;False;False;False;False" +
-    //"\nKnight;g1;White;False;False;False;False" +
-    //"\nSimplePawn;a4;White;False;False;False;False" +
-    //"\nSimplePawn;b2;White;True;False;False;False" +
-    //"\nSimplePawn;c2;White;True;False;False;False" +
-    //"\nSimplePawn;d2;White;True;False;False;False" +
-    //"\nSimplePawn;e3;White;False;False;False;False" +
-    //"\nSimplePawn;f4;White;False;False;False;False" +
-    //"\nSimplePawn;h2;White;False;False;False;False" +
-    //"\nSimplePawn;g4;White;True;False;False;False";
-    //      var whiteList = whiteListString.Split('\n');
-    //      foreach (var line in whiteList)
-    //      {
-    //        var datas = line.Split(';');
-    //        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-    //        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-    //        newPawn.IsFirstMove = bool.Parse(datas[3]);
-    //        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-    //        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-    //        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-    //        pawnListWhite.Add(newPawn);
-    //      }
+            //WHITEList
+            var whiteListString = "" +
+             "Rook;h1;White;False;False;False;False" +
+             "\nKnight;g3;White;False;False;False;False" +
+      "\nKnight;g1;White;False;False;False;False" +
+      "\nSimplePawn;h2;White;True;False;False;False"+
+      "\nSimplePawn;e3;White;False;False;False;False";
+            var whiteList = whiteListString.Split('\n');
+            foreach (var line in whiteList)
+            {
+              var datas = line.Split(';');
+              var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+              //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+              newPawn.IsFirstMove = bool.Parse(datas[3]);
+              newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+              newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+              newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+              pawnListWhite.Add(newPawn);
+            }
 
-    //      //BLACKList
-    //      var blackListString = "" +
-    //"King;e8;Black;False;True;True;True" +
-    //"\nQueen;a5;Black;False;False;False;False" +
-    //"\nRook;a8;Black;False;False;False;False" +
-    //"\nRook;h8;Black;False;False;False;False" +
-    //"\nBishop;b7;Black;False;False;False;False" +
-    //"\nBishop;f8;Black;False;False;False;False" +
-    //"\nKnight;d4;Black;False;False;False;False" +
-    //"\nKnight;g8;Black;False;False;False;False" +
-    //"\nSimplePawn;a7;Black;True;False;False;False" +
-    //"\nSimplePawn;b4;Black;False;False;False;False" +
-    //"\nSimplePawn;c5;Black;False;False;False;False" +
-    //"\nSimplePawn;d7;Black;True;False;False;False" +
-    //"\nSimplePawn;e7;Black;True;False;False;False" +
-    //"\nSimplePawn;f7;Black;True;False;False;False" +
-    //"\nSimplePawn;g7;Black;True;False;False;False" +
-    //"\nSimplePawn;h7;Black;True;False;False;False";
-    //      var blackList = blackListString.Split('\n');
-    //      foreach (var line in blackList)
-    //      {
-    //        var datas = line.Split(';');
-    //        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-    //        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-    //        newPawn.IsFirstMove = bool.Parse(datas[3]);
-    //        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-    //        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-    //        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-    //        pawnListBlack.Add(newPawn);
-    //      }
+            //BLACKList
+            var blackListString = "" +
+      "Bishop;b7;Black;False;False;False;False" +
+      "\nKnight;d4;Black;False;False;False;False";
+            var blackList = blackListString.Split('\n');
+            foreach (var line in blackList)
+            {
+              var datas = line.Split(';');
+              var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+              //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+              newPawn.IsFirstMove = bool.Parse(datas[3]);
+              newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+              newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+              newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+              pawnListBlack.Add(newPawn);
+            }
 
 
 
-    //      mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
+            mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
 
 
-    //      var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
-    //      //Le poin doit pas se mettre en e3
-    //      Assert.AreEqual(nodeResult.BestChildPosition, "e4");
+            var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+            //Le poin doit pas se mettre en e3
+            Assert.AreEqual(nodeResult.BestChildPosition, "e4");
 
 
-    //    }
-    //    [TestMethod]
-    public void  MTT33bLePionBlancDoitPrendreLeCavalier()
+          }
+
+
+          [TestMethod]
+          public void  MTT3300bLePionBlancDoitPrendreLeCavalier()
+          {
+            //Le pion blanch  doit prendre le cavalier en d4
+
+
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "White";
+
+
+
+            mainWindow.CleanPawnList();
+            var pawnListWhite = new List<Pawn>();
+            var pawnListBlack = new List<Pawn>();
+
+
+
+            //WHITEList
+            var whiteListString = "" +
+      "Knight;g1;White;False;False;False;False" +
+      "\nSimplePawn;e3;White;False;False;False;False";
+            var whiteList = whiteListString.Split('\n');
+            foreach (var line in whiteList)
+            {
+              var datas = line.Split(';');
+              var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+              //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+              newPawn.IsFirstMove = bool.Parse(datas[3]);
+              newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+              newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+              newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+              pawnListWhite.Add(newPawn);
+            }
+
+            //BLACKList
+            var blackListString = "" +
+      "Knight;d4;Black;False;False;False;False" +
+      "\nSimplePawn;b7;Black;True;False;False;False";
+            var blackList = blackListString.Split('\n');
+            foreach (var line in blackList)
+            {
+              var datas = line.Split(';');
+              var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+              //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+              newPawn.IsFirstMove = bool.Parse(datas[3]);
+              newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+              newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+              newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+              pawnListBlack.Add(newPawn);
+            }
+
+
+
+            mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
+
+
+            var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+            //Le poin doit  se mettre en d4
+            Assert.AreEqual(nodeResult.BestChildPosition, "d4");
+
+
+          }
+
+          */
+
+        //    [TestMethod]
+        //    public void  MTT33aLePionBlancNeDoitPasPrendreLeCavalier()
+        //    {
+        //      /*Le pion blanch ne doit pas prendre le cavalier en d4*/
+
+
+
+        //      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+        //      mainWindow.ComputerColore = "White";
+
+
+        //      
+        //       
+        //      
+        //      mainWindow.CleanPawnList();
+        //      var pawnListWhite = new List<Pawn>();
+        //      var pawnListBlack = new List<Pawn>();
+
+
+
+        //      //WHITEList
+        //      var whiteListString = "" +
+        //       "King;e1;White;False;True;True;True" +
+        //"\nQueen;d1;White;False;False;False;False" +
+        //"\nRook;a1;White;False;False;False;False" +
+        //"\nRook;h1;White;False;False;False;False" +
+        //"\nBishop;c1;White;False;False;False;False" +
+        //"\nKnight;g3;White;False;False;False;False" +
+        //"\nKnight;g1;White;False;False;False;False" +
+        //"\nSimplePawn;a4;White;False;False;False;False" +
+        //"\nSimplePawn;b2;White;True;False;False;False" +
+        //"\nSimplePawn;c2;White;True;False;False;False" +
+        //"\nSimplePawn;d2;White;True;False;False;False" +
+        //"\nSimplePawn;e3;White;False;False;False;False" +
+        //"\nSimplePawn;f4;White;False;False;False;False" +
+        //"\nSimplePawn;h2;White;False;False;False;False" +
+        //"\nSimplePawn;g4;White;True;False;False;False";
+        //      var whiteList = whiteListString.Split('\n');
+        //      foreach (var line in whiteList)
+        //      {
+        //        var datas = line.Split(';');
+        //        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+        //        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+        //        newPawn.IsFirstMove = bool.Parse(datas[3]);
+        //        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+        //        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+        //        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+        //        pawnListWhite.Add(newPawn);
+        //      }
+
+        //      //BLACKList
+        //      var blackListString = "" +
+        //"King;e8;Black;False;True;True;True" +
+        //"\nQueen;a5;Black;False;False;False;False" +
+        //"\nRook;a8;Black;False;False;False;False" +
+        //"\nRook;h8;Black;False;False;False;False" +
+        //"\nBishop;b7;Black;False;False;False;False" +
+        //"\nBishop;f8;Black;False;False;False;False" +
+        //"\nKnight;d4;Black;False;False;False;False" +
+        //"\nKnight;g8;Black;False;False;False;False" +
+        //"\nSimplePawn;a7;Black;True;False;False;False" +
+        //"\nSimplePawn;b4;Black;False;False;False;False" +
+        //"\nSimplePawn;c5;Black;False;False;False;False" +
+        //"\nSimplePawn;d7;Black;True;False;False;False" +
+        //"\nSimplePawn;e7;Black;True;False;False;False" +
+        //"\nSimplePawn;f7;Black;True;False;False;False" +
+        //"\nSimplePawn;g7;Black;True;False;False;False" +
+        //"\nSimplePawn;h7;Black;True;False;False;False";
+        //      var blackList = blackListString.Split('\n');
+        //      foreach (var line in blackList)
+        //      {
+        //        var datas = line.Split(';');
+        //        var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
+        //        //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
+        //        newPawn.IsFirstMove = bool.Parse(datas[3]);
+        //        newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
+        //        newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
+        //        newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
+        //        pawnListBlack.Add(newPawn);
+        //      }
+
+
+
+        //      mainWindow.FillPawnListAndFillAllPossibleTrips(pawnListWhite, pawnListBlack);
+
+
+        //      var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+        //      //Le poin doit pas se mettre en e3
+        //      Assert.AreEqual(nodeResult.BestChildPosition, "e4");
+
+
+        //    }
+        //    [TestMethod]
+        public void  MTT33bLePionBlancDoitPrendreLeCavalier()
     {
       /*Le pion blanch prendre le cavalier en d4*/
 
@@ -16344,5 +16403,43 @@ namespace Chess.Test
     }
 
   }
+
+
+    [TestClass]
+    public class HistoryWebToHistoryAppTest
+    {
+
+        [TestMethod]
+        public void oneLineHistoryWeb_to_oneLineHistoryTest()
+        {
+            var enter = "52(P|W)>36(__)";
+            var result = Chess.Utils.Chess2Utils.OneLineHistoryWebToOneLineHistoryApp(enter);
+            var execptedResult = "White:	Pawn	e2 => e4";
+            Assert.AreEqual(execptedResult, result);
+
+        }
+
+
+        [TestMethod]
+        public void oneLineHistoryWeb_to_oneLineHistoryTest2()
+        {
+            var enter = "7(T|B)>6(__)";
+            var result = Chess.Utils.Chess2Utils.OneLineHistoryWebToOneLineHistoryApp(enter);
+            var execptedResult = "Black:	Rook	h8 => g8";
+            Assert.AreEqual(execptedResult, result);
+
+        }
+
+        [TestMethod]
+        public void HistoryWeb_to_HistoryTest()
+        {
+            var enter1 = "52(P|W)>36(__)";
+            var enter2 = "8(P|B)>24(__)";
+            var interText = $"{enter1}\n{enter2}";
+            var result = Chess.Utils.Chess2Utils.HistoryWebToHistoryApp(interText);
+            Assert.IsTrue(result.Contains("White:	Pawn	e2 => e4"));
+
+        }
+    }
 
 }

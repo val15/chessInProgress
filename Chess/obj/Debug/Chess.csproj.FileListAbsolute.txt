@@ -769,6 +769,7 @@ D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Debug\tr\Microsoft.CodeAnalysis.
 D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Debug\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Debug\Chess.csproj.AssemblyReference.cache
+D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Debug\Chess.csproj.SuggestedBindingRedirects.cache
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Debug\View\MainWindow.g.cs
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Debug\View\RiseInRankWindow.g.cs
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Debug\View\SaveBestPositionsFofWindow.g.cs
