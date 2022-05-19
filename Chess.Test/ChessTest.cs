@@ -15050,8 +15050,61 @@ namespace Chess.Test
         }
 
 
-      
+        [TestMethod]
+        public void MTT93ALaReineNoirDoitSeMettreEnG3()
+        {
 
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "Black";
+            var testName = "T93ALaReineNoirDoitSeMettreEnG3";
+            var testPath = Path.Combine(testsDirrectory, testName);
+            mainWindow.LoadFromDirectorie(testPath);
+            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+            {
+                var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+                //Assert.AreEqual(nodeResult.Location, "g4");
+                Assert.AreEqual(nodeResult.BestChildPosition, "g3");
+            }
+            //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+            //Assert.IsNull(randomList);
+            //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+        }
+
+
+        /*[TestMethod]
+        public void MTT93BLePionNoirDoitSeMettreEnF4()
+        {
+
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "Black";
+            var testName = "T93BLePionNoirDoitSeMettreEnF4";
+            var testPath = Path.Combine(testsDirrectory, testName);
+            mainWindow.LoadFromDirectorie(testPath);
+            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+            {
+                var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+                //Assert.AreEqual(nodeResult.Location, "g4");
+                Assert.AreEqual(nodeResult.BestChildPosition, "e5");
+            }
+            //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+            //Assert.IsNull(randomList);
+            //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+        }
+        */
 
         /*tsiry;28-10-2021*/
         /*[TestMethod]
@@ -15453,7 +15506,7 @@ namespace Chess.Test
 
 
         //    }
-        //    [TestMethod]
+        [TestMethod]
         public void  MTT33bLePionBlancDoitPrendreLeCavalier()
     {
       /*Le pion blanch prendre le cavalier en d4*/
@@ -16013,6 +16066,7 @@ namespace Chess.Test
 
 
     }
+
 
 
     [TestMethod]

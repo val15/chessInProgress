@@ -28,10 +28,9 @@ namespace Chess.Utils
                 Debug.WriteLine("pawnIndex : {0}, Thread Id= {1}", pawnIndex, Thread.CurrentThread.ManagedThreadId);
                 Console.WriteLine("pawnIndex : {0}, Thread Id= {1}", pawnIndex, Thread.CurrentThread.ManagedThreadId);
 
-                var engine = new EngineMultiThreading(level, cpuColor, IsReprise, Chess2Console.Utils.IsMenaced(pawnIndex, boarChess2, cpuColor), SpecifiBoardList);
-
-
-                // var firstInLastMove = GetTreeLastAction();
+                using (var engine = new EngineMultiThreading(level, cpuColor, IsReprise, Chess2Console.Utils.IsMenaced(pawnIndex, boarChess2, cpuColor), SpecifiBoardList))
+                {
+                    // var firstInLastMove = GetTreeLastAction();
 
 
 
@@ -118,6 +117,11 @@ namespace Chess.Utils
 
 
                 }
+                }
+                
+
+
+                
 
             });
 
@@ -514,7 +518,6 @@ namespace Chess.Utils
 
                 var maxWeithList = new List<Node>();
                 maxWeithList.AddRange(maxBestNodListLevel4);
-                ////Pour T
 
                 //Pour T32 et T33 si maxL4 == maxL2 et positive on ne prend plus L3 et L2
                 if (maxBestNodListLevel4.Count == 1 && maxBestNodListLevel2.Count == 1)

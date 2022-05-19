@@ -751,6 +751,7 @@ D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Release\tr\Microsoft.CodeAnalysi
 D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Release\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess\bin\Release\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.AssemblyReference.cache
+D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.SuggestedBindingRedirects.cache
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\View\MainWindow.g.cs
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\View\RiseInRankWindow.g.cs
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\View\SaveBestPositionsFofWindow.g.cs
@@ -772,4 +773,3 @@ D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.application
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.CopyComplete
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.exe
 D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.pdb
-D:\tsiry\inProgressMM\chessInProgress\Chess\obj\Release\Chess.csproj.SuggestedBindingRedirects.cache

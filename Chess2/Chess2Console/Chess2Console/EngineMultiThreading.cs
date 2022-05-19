@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chess2Console
 {
-  public class EngineMultiThreading
+  public class EngineMultiThreading : IDisposable
   {
 
     public List<NodeChess2> level1NodeList { get; set; }
@@ -275,7 +275,7 @@ namespace Chess2Console
 
         //Ajout des neuds
         var newNode = new NodeChess2(parentNode, copyAndMovingBord, level, color, index, movedIndex, ComputerColore, DeepLevel);
-        parentNode.ChildList.Add(newNode);
+                parentNode.ChildList.Add(newNode);
 
 
         //if (newNode.Level == DeepLevel)
@@ -331,7 +331,8 @@ namespace Chess2Console
       if (level == 0)
       {
         var node = new NodeChess2(null, board, level, color, -1, -1, ComputerColore, DeepLevel);
-        node.Weight = 0;
+               
+                node.Weight = 0;
         //LastNodes.Add(node);
         parentNode = node;
       }
@@ -372,7 +373,11 @@ namespace Chess2Console
 
         //Ajout des neuds
         var newNode = new NodeChess2(parentNode, copyAndMovingBord, level, color, index, movedIndex, ComputerColore, DeepLevel);
-        parentNode.ChildList.Add(newNode);
+                if (newNode.Weight == 999999)
+                {
+                    var t_ = "ds";
+                }
+                parentNode.ChildList.Add(newNode);
 
 
         //if (newNode.Level == DeepLevel)
@@ -510,7 +515,7 @@ namespace Chess2Console
 
           //Ajout des neuds
           var newNode = new NodeChess2(parentNode, copyAndMovingBord, level, color, index, movedIndex, ComputerColore, DeepLevel);
-          parentNode.ChildList.Add(newNode);
+                    parentNode.ChildList.Add(newNode);
 
 
           if (newNode.Level == DeepLevel)
@@ -661,15 +666,17 @@ namespace Chess2Console
         foreach (var parent in parentLevelList)
         // Parallel.ForEach(parentLevelList, parent =>
         {
-        if (level == 1 || level == 3)//MAX
+          if (level == 1 || level == 3)//MAX
         {
 
           var maxWeight = parent.ChildList.Max(x => x.Weight);
           parent.Weight = maxWeight;
 
-        
+              
 
-          if (level == 1)
+
+
+                    if (level == 1)
           {
 
 
@@ -751,7 +758,7 @@ namespace Chess2Console
 
             var maxWeith = parent.ChildList.Max(x => x.Weight);
             
-            
+           
             //var minW = parent.ChildList.Min(x=>x.Weight);
             // if (maxWeith == 999)
             // maxWeith = parent.ChildList.Where(x => !Utils.KingIsMenaced(x.Board, Utils.ComputerColor)).Max(x => x.Weight);
@@ -821,58 +828,12 @@ namespace Chess2Console
 
         else//MIN
         {
+                   
+                        var minWeight = parent.ChildList.Min(x => x.Weight);
+                        parent.Weight = minWeight;
+                
 
-
-          var minWeight = parent.ChildList.Min(x => x.Weight);
-            parent.Weight = minWeight;
-
-          //if(level == 2)
-          // {
-          //   var minWeight = parent.ChildList.Min(x => x.Weight);
-          //   parent.Weight = minWeight;
-          // }
-
-
-          //if (level == 4)
-          //{
-          //  /*//Pour T78, inversion
-          //  if (FromIndexIsNenaced)
-          //  {
-          //    var minWeight = parent.ChildList.Max(x => x.Weight);
-          //    parent.Weight = minWeight;
-          //  }
-          //  else
-          //  {*/
-          //    var minWeight = parent.ChildList.Min(x => x.Weight);
-          //    parent.Weight = minWeight;
-          //  //}
-          //}
-            
-
-
-
-
-
-
-          //if (minWeight == -3)
-          //{
-          //  //  parent.Board.PrintInDebug();
-          //  var t_ = parent;
-          //}
-
-
-
-
-
-
-
-
-
-
-
-
-          // }
-
+          
         }
 
       }
@@ -950,6 +911,21 @@ namespace Chess2Console
 
     }
 
-  }
+        public void Dispose()
+        {
+            Debug.WriteLine("Memory used before collection:       {0:N0}",
+       GC.GetTotalMemory(false));
+            Console.WriteLine("Memory used before collection:       {0:N0}",
+                    GC.GetTotalMemory(false));
+            Debug.WriteLine("Collect");
+
+            GC.Collect();
+            Debug.WriteLine("Memory used before collection:       {0:N0}",
+                  GC.GetTotalMemory(false));
+            Console.WriteLine("Memory used before collection:       {0:N0}",
+                    GC.GetTotalMemory(false));
+
+        }
+    }
 
 }

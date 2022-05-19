@@ -65,8 +65,101 @@ namespace Chess2Console
       return 0;
     }
 
+        public bool TargetIndexIsMenaced(Board board, string curentColor, string opinionColor,int targetIndex)
+        {
 
-    public NodeChess2(NodeChess2 parent, Board board, int level, string color, int formIndex, int toIndex, string computeurColor, int maxDeepLevel)
+            var opinionListIndex = new List<int>();
+
+
+            for (int i = 0; i < board.GetCases().Count(); i++)
+            {
+                var caseBoard = board.GetCases()[i];
+                if (caseBoard.Contains($"|{opinionColor}"))
+                    opinionListIndex.Add(i);
+            }
+
+
+            foreach (var index in opinionListIndex)
+            {
+                var possiblesMoves = board.GetPossibleMoves(index, 1).Select(x => x.Index);
+                foreach (var movedIndex in possiblesMoves)
+                {
+                    if (movedIndex == targetIndex)
+                    {
+
+                        return true;
+
+
+                    }
+
+                }
+            }
+
+
+            /* var possiblesMoves = board.GetPossibleMoves(index, level).Select(x => x.Index);
+             foreach (var movedIndex in possiblesMoves)
+             {
+             }*/
+            return false;
+        }
+        public bool KingIsMenaced(Board board,string curentColor,string opinionColor)
+        {
+            var kingIndex = -1;
+            for (int i = 0; i < board.GetCases().Count(); i++)
+            {
+                var caseBoard = board.GetCases()[i];
+                if (caseBoard.Contains($"K|{curentColor}"))
+                    kingIndex = i;
+            }
+
+            return TargetIndexIsMenaced(board, curentColor, opinionColor, kingIndex);
+
+        }
+
+      
+
+        public bool  GetKingIsInChess(Board board,string curentColor,string opinionColor)
+        {
+            var kingIndex = -1;
+            for (int i = 0; i < board.GetCases().Count(); i++)
+            {
+                var caseBoard = board.GetCases()[i];
+                if (caseBoard.Contains($"K|{curentColor}"))
+                    kingIndex = i;
+            }
+
+            var possiblesMovesOfKing = board.GetPossibleMoves(kingIndex, 1).Select(x => x.Index);
+            if (possiblesMovesOfKing.Count() == 0)
+            {
+                return true;
+            }
+
+            var isMenacedCount = 0;
+
+            //si tous les indexs sont menacés, c'est echec et mat
+            foreach (var indexPossiblesMovesOfKing in possiblesMovesOfKing)
+            {
+                if (TargetIndexIsMenaced(board, curentColor, opinionColor, indexPossiblesMovesOfKing))
+                    isMenacedCount++;
+
+            }
+            if (isMenacedCount == possiblesMovesOfKing.Count())
+                return true;
+            return false;
+
+
+        }
+
+        public bool GetIsInChess(Board board,string color,string opinionColor)
+        {
+            if (KingIsMenaced(board, color, opinionColor))
+            {
+               return GetKingIsInChess(board, color, opinionColor);
+            }
+            return false;
+        }
+
+        public NodeChess2(NodeChess2 parent, Board board, int level, string color, int formIndex, int toIndex, string computeurColor, int maxDeepLevel)
     {
       FromIndex = formIndex;
       ToIndex = toIndex;
@@ -75,28 +168,46 @@ namespace Chess2Console
       Parent = parent;
       Color = color;
       ChildList = new List<NodeChess2>();
+          
+            //    if (GetIsInChess(board, computeurColor, color))
+            //{
+            //    Weight = -999999;
+            //    return;
+            //}
 
-      //Pour T69
-     /* var kingIndex = board.GetCases().ToList().IndexOf($"K|{computeurColor}");
-        if (kingIndex == -1)
-          Weight =  -999;
-
-        */
-      /*if(parent != null)
-      {
-        if (Utils.KingIsInChess(parent.Board, Utils.OpinionColor))
-        {
-          var t_in = 0;
-        }
-      }
-   */
+            //if (GetIsInChess(board, color, computeurColor))
+            //{
+               
+            //    Weight = 999999;
+            //    return;
+            //}
 
 
+            //TEST IS IN CHESS
+            //on regarde si le rois est menacer
+
+
+            //Pour T69
+            /* var kingIndex = board.GetCases().ToList().IndexOf($"K|{computeurColor}");
+               if (kingIndex == -1)
+                 Weight =  -999;
+
+               */
+            /*if(parent != null)
+            {
+              if (Utils.KingIsInChess(parent.Board, Utils.OpinionColor))
+              {
+                var t_in = 0;
+              }
+            }
+         */
 
 
 
 
-      if (Level == maxDeepLevel)
+
+
+            if (Level == maxDeepLevel)
       {
 
         var opinionKingIndex = board.GetCases().ToList().IndexOf($"K|{Utils.OpinionColor}");
