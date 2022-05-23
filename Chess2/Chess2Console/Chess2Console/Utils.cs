@@ -39,8 +39,13 @@ namespace Chess2Console
 "a1","b1","c1","d1","e1","f1","g1","h1"
     };
 
-
-    public static string ChangeLongNameToShortName(string longName)
+        /*tsiry;20-05-2022
+        * */
+        public static Board CloneBoad(Board originalBord)
+        {
+            return new Board(originalBord);
+        }
+        public static string ChangeLongNameToShortName(string longName)
     {
       var name = "P";
       //Pawn

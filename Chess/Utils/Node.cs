@@ -49,8 +49,8 @@ namespace Chess.Utils
     {
       return AssociatePawn.Value;
     }
-
-    public Node(int level, int makeCheckmateLevel, int weight,string  location, string oldPositionName,string colore,Node parent, List<Node> childList,string bestChildPosition,Pawn associatePawn, List<Pawn> currentLocalPawnList)
+     
+        public Node(int level, int makeCheckmateLevel, int weight,string  location, string oldPositionName,string colore,Node parent, List<Node> childList,string bestChildPosition,Pawn associatePawn, List<Pawn> currentLocalPawnList)
     {
       Level = level;
       MakeCheckmateLevel = makeCheckmateLevel;

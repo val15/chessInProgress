@@ -159,6 +159,62 @@ namespace Chess2Console
             return false;
         }
 
+        /*tsiry;23-05-202
+    * */
+        public bool GetIsLocationIsProtected(int locationIndex, string currentColor, string opinionColor)
+        {
+            if (!TargetIndexIsMenaced(Board, Color, opinionColor, locationIndex))
+                return false;
+
+            //On creer une copy du board
+            var copyBoard = Utils.CloneBoad(Board);
+            var currentCase = copyBoard.GetCases()[locationIndex];
+            if (!currentCase.Contains("|"))
+                return false;
+
+            //on change la couleur 
+            currentCase = currentCase.Replace($"|{currentColor}", $"|{opinionColor}");
+            copyBoard.GetCases()[locationIndex] = currentCase;
+            //si apres changement de couleur, la position est menacer
+            //=> c'est que la position est protégée
+            if (TargetIndexIsMenaced(copyBoard, $"{opinionColor}", $"{currentColor}", locationIndex))
+                return true;
+
+            return false;
+        }
+
+        /*tsiry;23-05-202
+      * */
+        public int GetProtectedNumber()
+        {
+            var opinionColor = "W";
+            if (Color == "W")
+                opinionColor = "B";
+            var protectedNumber = 0;
+            var alierIndexList = new List<int>();
+            var protectedList = new List<int>();
+            ///Board.GetCases().Where(x => x.Contains($"|{Color}"));
+            var i = 0;
+            foreach (var currentCase in Board.GetCases())
+            {
+                if (currentCase.Contains($"|{Color}"))
+                    alierIndexList.Add(i);
+                i++;
+            }
+            foreach (var index in alierIndexList)
+            {
+
+                if (GetIsLocationIsProtected(index, Color, opinionColor))
+                {
+                    protectedNumber++;
+                    protectedList.Add(index);
+                }
+
+            }
+            var t_ = protectedList;
+            return protectedNumber;
+        }
+
         public NodeChess2(NodeChess2 parent, Board board, int level, string color, int formIndex, int toIndex, string computeurColor, int maxDeepLevel)
     {
       FromIndex = formIndex;

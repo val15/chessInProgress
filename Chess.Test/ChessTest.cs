@@ -15077,6 +15077,27 @@ namespace Chess.Test
 
         }
 
+        /*tsiry;19-05-2022*/
+        [TestMethod]
+        public void MTT94LeCavalierBlanchDoitSeMettreEnD2_ou_leFouDoiSePettreEnE6()
+        {
+
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+            mainWindow.ComputerColore = "White";
+            var testName = "T94LeCavalierBlanchDoitSeMettreEnD2_ou_leFouDoiSePettreEnE6";
+            var testPath = Path.Combine(testsDirrectory, testName);
+            mainWindow.LoadFromDirectorie(testPath);
+            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+            {
+                var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(mainWindow.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(mainWindow.PawnList), mainWindow.IsReprise, mainWindow.SpecifiBoardList);
+
+                var result = nodeResult.BestChildPosition == "e6" || nodeResult.BestChildPosition == "d2";
+                //Assert.AreEqual(nodeResult.Location, "g4");
+                Assert.IsTrue(result);
+            }
+        }
+
+
 
         /*[TestMethod]
         public void MTT93BLePionNoirDoitSeMettreEnF4()

@@ -373,6 +373,14 @@ namespace Chess.Utils
                 {
                     if (bestNodListLevel4.Count > 0)
                     {
+                        //pour T94, on ajoute le nombre des pions protégers dans Weight
+                        //on cherche ne nombre de protege
+                        foreach (var node in bestNodListLevel4)
+                        {
+                            var protectedNumber = node.AsssociateNodeChess2.GetProtectedNumber();
+                            //Debug.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition} protectedNumber = {protectedNumber}");
+                            node.Weight += protectedNumber;
+                        }
                         maxWeithLevel4 = bestNodListLevel4.Max(x => x.Weight);
                         maxBestNodListLevel4 = bestNodListLevel4.Where(x => x.Weight == maxWeithLevel4).ToList();
                     }
