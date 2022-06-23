@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>BenchChessConsole.Program.Benchmarker-20220128-141304</title>
+<title>BenchChessConsole.Program.Benchmarker-20220623-142833</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1466 (21H1/May2021Update)
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1766 (21H1/May2021Update)
 Intel Core i7-7567U CPU 3.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
-  [Host]       : .NET Framework 4.8 (4.8.4420.0), X86 LegacyJIT
-  LegacyJitX64 : .NET Framework 4.8 (4.8.4420.0), X64 LegacyJIT
-  LegacyJitX86 : .NET Framework 4.8 (4.8.4420.0), X86 LegacyJIT
-  RyuJitX64    : .NET Framework 4.8 (4.8.4420.0), X64 RyuJIT
+  [Host]       : .NET Framework 4.8 (4.8.4515.0), X86 LegacyJIT
+  LegacyJitX64 : .NET Framework 4.8 (4.8.4515.0), X64 LegacyJIT
+  LegacyJitX86 : .NET Framework 4.8 (4.8.4515.0), X86 LegacyJIT
+  RyuJitX64    : .NET Framework 4.8 (4.8.4515.0), X64 RyuJIT
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>   Job</th><th>Jit</th><th>Platform</th><th>Mean</th><th>Error</th><th>StdDev</th><th> Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>Method</th><th>   Job</th><th>Jit</th><th>Platform</th><th>Mean</th><th>Error</th><th>StdDev</th><th> Gen 0</th><th> Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>Livel4Bech</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>46.98 s</td><td>0.778 s</td><td>0.690 s</td><td>1880000.0000</td><td>691000.0000</td><td>12000.0000</td><td>11 GB</td>
-</tr><tr><td>Livel4Bech</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>46.28 s</td><td>0.430 s</td><td>0.402 s</td><td>1150000.0000</td><td>608000.0000</td><td>8000.0000</td><td>6 GB</td>
-</tr><tr><td>Livel4Bech</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>44.94 s</td><td>0.894 s</td><td>0.792 s</td><td>1881000.0000</td><td>692000.0000</td><td>12000.0000</td><td>11 GB</td>
+</thead><tbody><tr><td>Livel4Bench</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>96.87 s</td><td>1.231 s</td><td>1.151 s</td><td>3645000.0000</td><td>947000.0000</td><td>41000.0000</td><td>20 GB</td>
+</tr><tr><td>Livel4Bench</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>97.74 s</td><td>1.349 s</td><td>1.262 s</td><td>2206000.0000</td><td>1059000.0000</td><td>40000.0000</td><td>12 GB</td>
+</tr><tr><td>Livel4Bench</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>93.93 s</td><td>1.073 s</td><td>0.951 s</td><td>3644000.0000</td><td>941000.0000</td><td>40000.0000</td><td>20 GB</td>
 </tr></tbody></table>
 </body>
 </html>

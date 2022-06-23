@@ -2033,33 +2033,35 @@ namespace Chess
       Node node = new Node();
       this.Dispatcher.BeginInvoke(new Action(() =>
       {
-        /* var boarChess2 = Chess2Utils.GenerateBoardFormPawnList(this.PawnList);
+          /* var boarChess2 = Chess2Utils.GenerateBoardFormPawnList(this.PawnList);
 
-         //pour T82 NUll 2
-         //  boarChess2.MovingList
+           //pour T82 NUll 2
+           //  boarChess2.MovingList
 
-         var engine = new Engine(DeeLevel, ComputerColore[0].ToString(), IsReprise, SpecifiBoardList, true);
+           var engine = new Engine(DeeLevel, ComputerColore[0].ToString(), IsReprise, SpecifiBoardList, true);
 
-         var bestNodeChess2 = engine.Search(boarChess2, TurnNumberLabel.Content.ToString());
+           var bestNodeChess2 = engine.Search(boarChess2, TurnNumberLabel.Content.ToString());
 
-        // Node node = new Node();
-         node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
-         node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
-         node.AssociatePawn = GetPawn(node.Location);
-         //Seulment pour les test
-         node.AsssociateNodeChess2 = bestNodeChess2;
-         //return node;
-         //node.AsssociateNodeChess2 = bestNodeChess2;
-         */
-        var boarChess = Chess2Utils.GenerateBoardFormPawnList(this.PawnList);
-        node = Chess2Utils.GetBestPositionLocalUsingMiltiThreading(color, boarChess,this.IsReprise,this.SpecifiBoardList);
-        MoveTo(node.Location, node.BestChildPosition);
+          // Node node = new Node();
+           node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
+           node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
+           node.AssociatePawn = GetPawn(node.Location);
+           //Seulment pour les test
+           node.AsssociateNodeChess2 = bestNodeChess2;
+           //return node;
+           //node.AsssociateNodeChess2 = bestNodeChess2;
+           */
+          using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+          {
+              var boarChess = Chess2Utils.GenerateBoardFormPawnList(this.PawnList);
+              node = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(color, boarChess, this.IsReprise, this.SpecifiBoardList);
+              MoveTo(node.Location, node.BestChildPosition);
 
-        
-        // Notifier.ShowInformation("Move completed");
 
-        _cpuTimer?.Stop();
-       
+              // Notifier.ShowInformation("Move completed");
+
+              _cpuTimer?.Stop();
+          }
        
       }));
       return node;
@@ -2125,15 +2127,18 @@ namespace Chess
         var fromIndexNotValide = Chess2Utils.GetIndexFromLocation(positionsDatas[0]);
         var toIndexNotValide = Chess2Utils.GetIndexFromLocation(positionsDatas[1]);
 
-        var bestNodeChess2 = engine.Search(boarChess2, TurnNumberLabel.Content.ToString(), fromIndexNotValide, toIndexNotValide);
-
-        Node node = new Node();
-        node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
-        node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
-        node.AssociatePawn = GetPawn(node.Location);
-        //Seulment pour les test
-        node.AsssociateNodeChess2 = bestNodeChess2;
-        return node;
+                using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+                {
+                    // var bestNodeChess2 = engine.Search(boarChess2, TurnNumberLabel.Content.ToString(), fromIndexNotValide, toIndexNotValide);
+                    var bestNodeChess2 = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(this.ComputerColore, Chess2Utils.GenerateBoardFormPawnList(this.PawnList), true, null);
+                   /* Node node = new Node();
+                    node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
+                    node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
+                    node.AssociatePawn = GetPawn(node.Location);
+                    //Seulment pour les test
+                    node.AsssociateNodeChess2 = bestNodeChess2;*/
+                    return bestNodeChess2;
+                }
       }
       catch (Exception ex)
       {

@@ -14,13 +14,13 @@ namespace Chess.Utils
         //Pour T90
         public List<NodeChess2> Level4BlackList { get; set; }
 
-        public List<Chess.Utils.Node> EmuleAllIndexInParallelForEach(Board boarChess2, List<int> computerPawnsIndex, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
+        public List<Node> EmuleAllIndexInParallelForEach(Board boarChess2, List<int> computerPawnsIndex, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
         {
             // var cpuColor = ComputerColore[0].ToString();
             var opinionColor = "W";
             if (cpuColor == "W")
                 opinionColor = "B";
-            List<Chess.Utils.Node> bestNodList = new List<Node>();
+            List<Node> bestNodList = new List<Node>();
             Parallel.ForEach(computerPawnsIndex, pawnIndex =>
             {
                 // GC.Collect();
@@ -34,94 +34,94 @@ namespace Chess.Utils
 
 
 
-                var bestNodeChess2 = engine.SearchThreadForOnce(boarChess2, "5", pawnIndex, level);
-                //Pour T90 et T91
-                if (level == 4 && engine.Level4BlackList != null)
-                {
-                    if (Level4BlackList == null)
-                        Level4BlackList = new List<NodeChess2>();
-                    Level4BlackList.AddRange(engine.Level4BlackList);
-                    // var t_minNodeList = engine.Level4MinList;
-                }
-
-                if (bestNodeChess2 != null)
-                {
-                    var node = new Node();
-                    node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
-                    node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
-                    //DOTO
-                    //// node.AssociatePawn = GetPawn(node.Location);
-                    //Seulment pour les test
-                    node.AsssociateNodeChess2 = bestNodeChess2;
-
-                    //Pour T49
-                    // si la destination contien un pion adverse, 
-                    //le poid est plus la valeure du pion adverse
-                    var destinationColor = boarChess2.GetPawnColorNameInIndex(bestNodeChess2.ToIndex);
-
-                    if (destinationColor == opinionColor)
+                    var bestNodeChess2 = engine.SearchThreadForOnce(boarChess2, "5", pawnIndex, level);
+                    //Pour T90 et T91
+                    if (level == 4 && engine.Level4BlackList != null)
                     {
-                        bestNodeChess2.Weight += 1;
-                        // bestNodeChess2.Weight += boarChess2.GetValue(boarChess2.GetCaseInIndex(bestNodeChess2.ToIndex));
+                        if (Level4BlackList == null)
+                            Level4BlackList = new List<NodeChess2>();
+                        Level4BlackList.AddRange(engine.Level4BlackList);
+                        // var t_minNodeList = engine.Level4MinList;
                     }
-                    node.Weight = bestNodeChess2.Weight;
-                    if (level < 4)
+
+                    if (bestNodeChess2 != null)
                     {
-                        //var toMenacedWeight = 0;
-                        node.IsMenaced = Chess2Console.Utils.IsMenaced(bestNodeChess2.ToIndex, boarChess2, cpuColor);
-                        //pour T65
-                        //pur bestNodListLevel2 on enleve des point aux menacées 
-                        // bestNodList.Where(w => w.IsMenaced).ToList().ForEach(x => x.Weight -= x.AssociatePawn.Value);
-                        //if(bestNodeChess2.ToIndex == 16)
-                        // {
-                        //   var t_ = 00;
-                        // }
-                        if (node.IsMenaced)
+                        var node = new Node();
+                        node.Location = Chess2Utils.GetLocationFromIndex(bestNodeChess2.FromIndex);
+                        node.BestChildPosition = Chess2Utils.GetLocationFromIndex(bestNodeChess2.ToIndex);
+                        //DOTO
+                        //// node.AssociatePawn = GetPawn(node.Location);
+                        //Seulment pour les test
+                        node.AsssociateNodeChess2 = bestNodeChess2;
+
+                        //Pour T49
+                        // si la destination contien un pion adverse, 
+                        //le poid est plus la valeure du pion adverse
+                        var destinationColor = boarChess2.GetPawnColorNameInIndex(bestNodeChess2.ToIndex);
+
+                        if (destinationColor == opinionColor)
                         {
+                            bestNodeChess2.Weight += 1;
+                            // bestNodeChess2.Weight += boarChess2.GetValue(boarChess2.GetCaseInIndex(bestNodeChess2.ToIndex));
+                        }
+                        node.Weight = bestNodeChess2.Weight;
+                        if (level < 4)
+                        {
+                            //var toMenacedWeight = 0;
+                            node.IsMenaced = Chess2Console.Utils.IsMenaced(bestNodeChess2.ToIndex, boarChess2, cpuColor);
+                            //pour T65
+                            //pur bestNodListLevel2 on enleve des point aux menacées 
+                            // bestNodList.Where(w => w.IsMenaced).ToList().ForEach(x => x.Weight -= x.AssociatePawn.Value);
+                            //if(bestNodeChess2.ToIndex == 16)
+                            // {
+                            //   var t_ = 00;
+                            // }
+                            if (node.IsMenaced)
+                            {
 
-                            //var t_ddv = bestNodeChess2.GetValue();
+                                //var t_ddv = bestNodeChess2.GetValue();
 
-                            node.Weight -= bestNodeChess2.GetValue();
-                            bestNodeChess2.Weight = node.Weight;
-                            // var t_dd = node.Weight;
+                                node.Weight -= bestNodeChess2.GetValue();
+                                bestNodeChess2.Weight = node.Weight;
+                                // var t_dd = node.Weight;
+                            }
+
                         }
 
+
+                        //Pour T80 et T81
+                        var kingIsMenaced = Chess2Console.Utils.ComputerKingIsMenaced(node.AsssociateNodeChess2.Board);
+
+                        if (!kingIsMenaced)
+                        {
+
+                            //Pour T88 si il y a -999 au niveau 3 on l'enleve
+                            //seulment pour le level 3
+                            //on réemule les best de niveau 3
+                            /* if(level == 3)
+                             {
+                               var recheckNode = GetOneNodeLevel2Node(boarChess2, Chess2Utils.GetIndexFromLocation(node.Location), Chess2Utils.GetIndexFromLocation(node.BestChildPosition), Utils.ComputerColor, IsReprise, SpecifiBoardList);
+                               if (recheckNode.Weight == -999)
+                               {
+                                 node.Weight = -999;
+                               }
+                             }*/
+
+                            // }*/
+
+                            Debug.WriteLine($"{bestNodeChess2.Weight}  {node.Location} =>  {node.BestChildPosition}");
+                            Console.WriteLine($"{bestNodeChess2.Weight}  {node.Location} =>  {node.BestChildPosition}");
+                            bestNodList.Add(node);
+                        }
+
+
+
                     }
-
-
-                    //Pour T80 et T81
-                    var kingIsMenaced = Chess2Console.Utils.ComputerKingIsMenaced(node.AsssociateNodeChess2.Board);
-
-                    if (!kingIsMenaced)
-                    {
-
-                        //Pour T88 si il y a -999 au niveau 3 on l'enleve
-                        //seulment pour le level 3
-                        //on réemule les best de niveau 3
-                        /* if(level == 3)
-                         {
-                           var recheckNode = GetOneNodeLevel2Node(boarChess2, Chess2Utils.GetIndexFromLocation(node.Location), Chess2Utils.GetIndexFromLocation(node.BestChildPosition), Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
-                           if (recheckNode.Weight == -999)
-                           {
-                             node.Weight = -999;
-                           }
-                         }*/
-
-                        // }*/
-
-                        Debug.WriteLine($"{bestNodeChess2.Weight}  {node.Location} =>  {node.BestChildPosition}");
-                        Console.WriteLine($"{bestNodeChess2.Weight}  {node.Location} =>  {node.BestChildPosition}");
-                        bestNodList.Add(node);
-                    }
-
-
-
                 }
-                }
-                
 
 
-                
+
+
 
             });
 
@@ -132,10 +132,10 @@ namespace Chess.Utils
         /*tsiry;07-01-2022
      * on élule la reinne avant les autres
      * */
-        public Chess.Utils.Node EmuleOnlyOneIndex(Board boarChess2, int pawnIndex, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
+        public Node EmuleOnlyOneIndex(Board boarChess2, int pawnIndex, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
         {
-            // var boarChess2 = Chess2Console.Utils.Clone(boarChessIn);
-            //var cpuColor = Chess2Console.Utils.ComputerColor;
+            // var boarChess2 = Utils.Clone(boarChessIn);
+            //var cpuColor = Utils.ComputerColor;
             var bestNode = new Node();
 
             // {
@@ -208,7 +208,7 @@ namespace Chess.Utils
         * on prend level 2 de noeud sélectionné pour valider le noeud 2
         * */
 
-        public Chess.Utils.Node GetOneNodeLevel2Node(Board boarChess2, int fromIndex, int toIndex, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
+        public Node GetOneNodeLevel2Node(Board boarChess2, int fromIndex, int toIndex, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
         {
 
 
@@ -269,10 +269,10 @@ namespace Chess.Utils
         }
 
 
-        public List<Chess.Utils.Node> GetBestNodeListFromLevel(Board boarChess2, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
+        public List<Node> GetBestNodeListFromLevel(Board boarChess2, int level, string cpuColor, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
         {
             var bestNodList = new List<Node>();
-            // var boarChess2 = Chess2Console.Utils.Clone(boarChessIn);
+            // var boarChess2 = Utils.Clone(boarChessIn);
 
 
 
@@ -312,15 +312,68 @@ namespace Chess.Utils
 
         }
 
+        /// <summary>
+        /// tsiry;17-06-2022
+        /// pour modificer bestNodListLevel4 en fonction de maxWeight à partir de inList
+        /// </summary>
+        public void EditBestNodListLevel4FromMaxOtherLevel(in List<Node> bestNodListLevel4, double maxWeight, List<Node> inList)
+        {
+            var maxInList = inList.Where(x => x.Weight == maxWeight);
+            foreach (var node in maxInList)
+            {
+                //Pour T53 ion ne modifie que les négatives
+                bestNodListLevel4.Where(c => c.Location == node.Location && c.BestChildPosition == node.BestChildPosition && c.Weight < 0).Select(c => { c.Weight = node.Weight; return c; }).ToList();
+
+            }
+            Debug.WriteLine($"bestNodList after edit max");
+            Console.WriteLine($"bestNodList after edit max");
+
+            foreach (var node in bestNodListLevel4)
+            {
+                Debug.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition}");
+                Console.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition}");
+            }
+        }
 
         public Node GetBestPositionLocalUsingMiltiThreading(string colore, Board boarChess, bool IsReprise, List<SpecificBoard> SpecifiBoardList)
         {
             try
             {
-                //Pour les BestsPosition
-                // GC.Collect();
                 Chess2Console.Utils.ComputerColor = colore[0].ToString();
                 Console.WriteLine($"Computer color = {Chess2Console.Utils.ComputerColor}");
+                Console.WriteLine($"Opinion color = {Chess2Console.Utils.OpinionColor}");
+                //Utils.MainBord = boarChess;
+                Debug.WriteLine("L2--------------------");
+                Console.WriteLine("L2--------------------");
+                //Console.WriteLine("L4--------------------");
+                var L2ChessList = GetBestNodeListFromLevel(boarChess, 2, Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
+                var L2InChessList = L2ChessList.Where(x => x.Weight <= -990).ToList();
+
+                var L2MaxWeight = 0.0;
+                if (L2ChessList.Count > 0)
+                    L2MaxWeight = L2ChessList.Max(x => x.Weight);
+
+
+                var L3MaxWeight = 0.0;
+                List<Node> L3ChessList = new List<Node>();
+                //Pour T95B si la majorité de L2ChessList sont inChess L2InChessList.Count
+                //on ne passe plus par L3 
+                //Pour T67 si L2ChessList.Count<=2 on prend le L3
+                var diff0 = L2ChessList.Count - L2InChessList.Count;
+
+                if (diff0 > 2 || L2ChessList.Count <= 2)
+                {
+                    Debug.WriteLine("L3--------------------");
+                    Console.WriteLine("L3--------------------");
+                    L3ChessList = GetBestNodeListFromLevel(boarChess, 3, Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
+                    L3MaxWeight = L3ChessList.Max(x => x.Weight);
+
+                    //
+                }
+
+                //Pour les BestsPosition
+                // GC.Collect();
+
 
                 /*//TODO A DECOMMENTER SpecificPositionsList
                 if (SpecificPositionsList != null)
@@ -342,20 +395,76 @@ namespace Chess.Utils
 
                 //TODO A DEPLACER
                 //Debug.WriteLine("L4------ a1 =>  a6");
-                //var fromIndex0 = Chess2Console.Utils.GetIndexFromLocation("a1");
-                //var toIndex0 = Chess2Console.Utils.GetIndexFromLocation("a6");
+                //var fromIndex0 = Utils.GetIndexFromLocation("a1");
+                //var toIndex0 = Utils.GetIndexFromLocation("a6");
                 //var bestNodeL3One0 = GetOneNodeLevel3Node(boarChess2, fromIndex0, toIndex0);
 
 
 
 
-
+                //  var t_blsd = GetBestNodeListFromLevel(boarChess, 2, "B", IsReprise, SpecifiBoardList);
                 Debug.WriteLine("L4--------------------");
                 Console.WriteLine("L4--------------------");
                 var maxBestNodListLevel4 = new List<Node>();
                 var maxBestNodListLevel3 = new List<Node>();
                 var maxBestNodListLevel2 = new List<Node>();
                 var bestNodListLevel4 = GetBestNodeListFromLevel(boarChess, 4, Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
+                var L4MaxWeight = 0.0;
+                if (bestNodListLevel4.Count > 0)
+                    L4MaxWeight = bestNodListLevel4.Max(x => x.Weight);
+
+                //pour T60 et T67 si bestNodListLevel4.Count == 0
+                if (bestNodListLevel4.Count == 0)
+                {
+                    bestNodListLevel4.AddRange(L2ChessList);
+                    bestNodListLevel4.AddRange(L3ChessList);
+                }
+
+                // pour T95B on modifie le pour des L2InChessList dans bestNodListLevel4
+                //mais pour T62 on ne pas le max de bestNodListLevel4
+                foreach (var node in L2InChessList)
+                {
+                    bestNodListLevel4.Where(c => c.Location == node.Location && c.BestChildPosition == node.BestChildPosition && c.Weight != L4MaxWeight).Select(c => { c.Weight = node.Weight; return c; }).ToList();
+
+                }
+
+                L4MaxWeight = bestNodListLevel4.Max(x => x.Weight);
+                if (L2MaxWeight > L4MaxWeight)
+                {
+                    EditBestNodListLevel4FromMaxOtherLevel(bestNodListLevel4, L2MaxWeight, L2ChessList);
+                }
+                L4MaxWeight = bestNodListLevel4.Max(x => x.Weight);
+                if (L3ChessList.Count > 0 && L3MaxWeight > L4MaxWeight)
+                {
+                    EditBestNodListLevel4FromMaxOtherLevel(bestNodListLevel4, L3MaxWeight, L3ChessList);
+                }
+
+                //Pour T85 et T88 si max L3 n'est pas pas dans bestNodListLevel4 
+
+                L4MaxWeight = bestNodListLevel4.Max(x => x.Weight);
+                if (L3MaxWeight > L4MaxWeight)
+                {
+                    var maxListL3 = L3ChessList.Where(x => x.Weight == L3MaxWeight).ToList();
+                    if (maxListL3.Count == 1)
+                    {
+                        var toAddFromL3 = maxListL3.First();
+                        var inL2 = L2ChessList.FirstOrDefault(x => x.Location == toAddFromL3.Location && x.BestChildPosition == toAddFromL3.BestChildPosition);
+                        if (inL2 != null)
+                            bestNodListLevel4.Add(toAddFromL3);
+                        // else if(toAddFromL3.Weight > L2MaxWeight )
+                    }
+                }
+
+                Debug.WriteLine($"bestNodListLevel4 after edit for in chess in L2, L2 max and L3 max");
+                Console.WriteLine($"bestNodListLevel4 after edit for in chess in L2, L2 max and L3 max");
+                foreach (var node in bestNodListLevel4)
+                {
+                    Debug.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition}");
+                    Console.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition}");
+                }
+
+
+
                 //Level4MinList.AddRange(Level4MinList);
                 //var t_level4MinList = Level4MinList.Distinct();
                 Debug.WriteLine("Level4BlackList--------");
@@ -367,225 +476,27 @@ namespace Chess.Utils
 
                 }
 
-                var maxWeithLevel4 = -1111;
-                var maxWeithLevel3 = -1111;
+
+                var maxWeithLevel4 = -1111.0;
                 if (bestNodListLevel4 != null)
                 {
                     if (bestNodListLevel4.Count > 0)
                     {
-                        //pour T94, on ajoute le nombre des pions protégers dans Weight
-                        //on cherche ne nombre de protege
-                        foreach (var node in bestNodListLevel4)
+                        //Pour T88 on modifie les les Level4BlackList
+                        foreach (var node in Level4BlackList)
                         {
-                            var protectedNumber = node.AsssociateNodeChess2.GetProtectedNumber();
-                            //Debug.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition} protectedNumber = {protectedNumber}");
-                            node.Weight += protectedNumber;
+                            bestNodListLevel4.Where(x => x.AsssociateNodeChess2.FromIndex == node.FromIndex && x.AsssociateNodeChess2.ToIndex == node.ToIndex && node.Weight < -900).Select(c => { c.Weight = node.Weight; return c; }).ToList();
+
                         }
+
                         maxWeithLevel4 = bestNodListLevel4.Max(x => x.Weight);
                         maxBestNodListLevel4 = bestNodListLevel4.Where(x => x.Weight == maxWeithLevel4).ToList();
                     }
                 }
 
-
-
-                //Pour T87 Win
-                //si pour L4 il y a un noeud de 999
-                //on ne passe plus par L3 et L2
-                var isNeedL3L2 = true;
-                if (maxBestNodListLevel4.Count > 0)
-                {
-                    if (maxBestNodListLevel4.Max(x => x.Weight) >= 999)
-                    {
-                        isNeedL3L2 = false;
-                    }
-                }
-
-                //Pour T87 protect Win
-                //si pour L4 il y plus des 1/2 des noeuds qui ont -999
-                //on ne passe plus par L3 et L2
-
-                if (bestNodListLevel4.Count > 0)
-                {
-                    // var t_3 = bestNodListLevel4.Count;
-                    var inChessNumber = bestNodListLevel4.Where(x => x.Weight == -999).ToList().Count;
-                    var half = bestNodListLevel4.Count / 2;
-                    if (inChessNumber >= half)
-                        isNeedL3L2 = false;
-
-                }
-
-
-                if (isNeedL3L2)
-                {
-                    Debug.WriteLine("L3--------------------");
-                    Console.WriteLine("L3--------------------");
-                    var bestNodeListLevel3 = new List<Node>();
-                    bestNodeListLevel3 = GetBestNodeListFromLevel(boarChess, 3, Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
-                    //Pour T90 et T91
-                    foreach (var bestNodeL in bestNodeListLevel3)
-                    {
-                        var contain = Level4BlackList.FirstOrDefault(x => x.FromIndex == bestNodeL.AsssociateNodeChess2.FromIndex && x.ToIndex == bestNodeL.AsssociateNodeChess2.ToIndex);
-                        if (contain != null)
-                        {
-                            var diff = contain.Weight + bestNodeL.Weight;
-                            if (diff < 0)
-                                bestNodeL.Weight = contain.Weight;
-                        }
-
-                    }
-
-                    if (bestNodeListLevel3.Count > 0)
-                    {
-
-
-                        maxWeithLevel3 = bestNodeListLevel3.Max(x => x.Weight);
-                        maxBestNodListLevel3 = bestNodeListLevel3.Where(x => x.Weight == maxWeithLevel3).ToList();
-
-
-                        //pour T78
-                        //si maxBestNodListLevel3 count ==1
-                        //si maxBestNodListLevel3 se trouve dans maxBestNodListLevel4
-                        /* if (maxBestNodListLevel3.Count == 1)
-                         {
-                           var bestNodeInlevel3 = maxBestNodListLevel3.First();
-                           var equivalentInLevel4 = bestNodListLevel4.FirstOrDefault(x => x.Location == bestNodeInlevel3.Location && x.BestChildPosition == bestNodeInlevel3.BestChildPosition);
-                           if (equivalentInLevel4 != null)
-                           {
-                             var diff = bestNodeInlevel3.Weight - equivalentInLevel4.Weight;
-                             //si diff positif, on ajout bestNodeInlevel3 dans maxBestNodListLevel4
-                             if (diff > 0)
-                             {
-                               maxBestNodListLevel4.Add(bestNodeInlevel3);
-                             }
-                           }
-
-                         }
-                         */
-                    }
-
-
-
-
-                    Debug.WriteLine("L2--------------------");
-                    Console.WriteLine("L2--------------------");
-                    var bestNodeListLevel2 = new List<Node>();
-                    bestNodeListLevel2 = GetBestNodeListFromLevel(boarChess, 2, Chess2Console.Utils.ComputerColor, IsReprise, SpecifiBoardList);
-                    //Pour T90 et T91
-                    foreach (var bestNodeL in bestNodeListLevel2)
-                    {
-                        var contain = Level4BlackList.FirstOrDefault(x => x.FromIndex == bestNodeL.AsssociateNodeChess2.FromIndex && x.ToIndex == bestNodeL.AsssociateNodeChess2.ToIndex);
-
-                        if (contain != null)
-                        {
-                            var diff = contain.Weight + bestNodeL.Weight;
-                            if (diff < 0)
-                                bestNodeL.Weight = contain.Weight;
-                        }
-
-                    }
-
-                    var toDeleteForL3L2Node = bestNodListLevel4.Where(x => x.Weight <= -900);
-                    //pour T29 on enleve de bestNodListLevel3 et de bestNodListLevel2
-                    //des noeuds -999 de bestNodListLevel4
-                    foreach (var toDeleteNode in toDeleteForL3L2Node)
-                    {
-                        bestNodeListLevel3.RemoveAll(x => x.Location == toDeleteNode.Location && x.BestChildPosition == toDeleteNode.BestChildPosition);
-                    }
-
-                    //pour T88
-                    //on supprime aussi de l3 les eches en l2
-                    //-998  e5 =>  c7
-                    /* var toDeleteForL3NodeFromL2 = bestNodListLevel2.Where(x => x.Weight <= -900);
-                     foreach (var toDeleteNode in toDeleteForL3NodeFromL2)
-                     {
-                       bestNodListLevel3.RemoveAll(x => x.Location == toDeleteNode.Location && x.BestChildPosition == toDeleteNode.BestChildPosition);
-                     }*/
-
-
-
-
-
-
-
-                    //pour T29 on enleve de bestNodListLevel3 et de bestNodListLevel2
-                    //des noeuds -999 de bestNodListLevel4
-                    foreach (var toDeleteNode in toDeleteForL3L2Node)
-                    {
-                        bestNodeListLevel2.RemoveAll(x => x.Location == toDeleteNode.Location && x.BestChildPosition == toDeleteNode.BestChildPosition);
-                    }
-                    var maxWeithLevel2 = -1111;
-
-                    if (bestNodeListLevel2.Count > 0)
-                    {
-                        maxWeithLevel2 = bestNodeListLevel2.Max(x => x.Weight);
-                        maxBestNodListLevel2 = bestNodeListLevel2.Where(x => x.Weight == maxWeithLevel2).ToList();
-                    }
-
-
-                }
-
                 var maxWeithList = new List<Node>();
                 maxWeithList.AddRange(maxBestNodListLevel4);
 
-                //Pour T32 et T33 si maxL4 == maxL2 et positive on ne prend plus L3 et L2
-                if (maxBestNodListLevel4.Count == 1 && maxBestNodListLevel2.Count == 1)
-                {
-                    var firstL4 = maxBestNodListLevel4.First();
-                    var firstL2 = maxBestNodListLevel2.First();
-                    if (firstL4.Weight > 0 && (firstL4.Location == firstL2.Location && firstL4.BestChildPosition == firstL2.BestChildPosition))
-                    {
-                        isNeedL3L2 = false;
-                    }
-                }
-
-                if (isNeedL3L2)
-                {
-                    //Pour T49 on ajoute L3 si max L3 est suppérieur à max L4
-                    if (maxWeithLevel3 > maxWeithLevel4)
-                    {
-                        maxWeithList.AddRange(maxBestNodListLevel3);
-                    }
-
-
-
-                    maxWeithList.AddRange(maxBestNodListLevel2);
-                }
-
-
-
-                //T53 pour tous L3 dans L4, on modifie le poids dans L3
-                //T92 on ne modifie que les L3 dans L4 et pas les L2
-                //foreach (var node in maxBestNodListLevel3)
-                for (int i = 0; i < maxWeithList.Count; i++)
-                {
-                    var node = maxWeithList[i];
-
-
-                    /* if (node.Location == "e7" && node.BestChildPosition == "e6")
-                     {
-                       var t_ = 54;
-                     }*/
-                    var nodeInL4 = bestNodListLevel4.FirstOrDefault(x => x.Location == node.Location && x.BestChildPosition == node.BestChildPosition && node.Level == 3);
-                    if (nodeInL4 != null)
-                    {
-
-
-                        Debug.WriteLine($"{node.Location} => {node.BestChildPosition}    {node.Weight} To {nodeInL4.Weight}");
-                        Console.WriteLine($"{node.Location} => {node.BestChildPosition}    {node.Weight} To {nodeInL4.Weight}");
-
-                        var diff = nodeInL4.Weight + node.Weight; //-4+1  -4 +3 
-                        if (diff < -1)
-                        {
-                            // -4  e7 => e6
-                            // Debug.WriteLine("To l4");
-                            // Console.WriteLine("To l4");
-                            //Quand best node est aussi présent dans L2 et L3, on ne l'enleve pas
-                            node.Weight = nodeInL4.Weight;
-                        }
-                        //node.Weight = nodeInL4.Weight;
-                    }
-
-                }
 
                 var maxWeith = maxWeithList.Max(x => x.Weight);
                 maxWeithList = maxWeithList.Where(x => x.Weight == maxWeith).ToList();
@@ -605,13 +516,38 @@ namespace Chess.Utils
 
                 if (maxWeithList.Count() > 1)
                 {
-                    foreach (var node2 in maxWeithList)
+                    //pour T94, on ajoute le nombre des pions protégers dans Weight
+                    //on cherche ne nombre de protege
+
+                    foreach (var node in maxWeithList)
                     {
-                        nodeResult.AsssociateNodeChess2.RandomEquivalentList.Add(node2.AsssociateNodeChess2);
+
+                        var protectedNumber = node.AsssociateNodeChess2.GetProtectedNumber();
+                        //Debug.WriteLine($"{node.Weight}  {node.Location} =>  {node.BestChildPosition} protectedNumber = {protectedNumber}");
+                        node.Weight += protectedNumber;
+
+
                     }
-                    //rondom
-                    var rand = new Random();
-                    nodeResult = maxWeithList.ToList()[rand.Next(maxWeithList.Count())];
+                    maxWeith = maxWeithList.Max(x => x.Weight);
+                    maxWeithList = maxWeithList.Where(x => x.Weight == maxWeith).ToList();
+                    if (maxWeithList.Count() == 1)
+                        nodeResult = maxWeithList.First();
+                    else
+                    {
+                        foreach (var node2 in maxWeithList)
+                        {
+                            nodeResult.AsssociateNodeChess2.RandomEquivalentList.Add(node2.AsssociateNodeChess2);
+                        }
+                        //rondom
+                        var rand = new Random();
+                        nodeResult = maxWeithList.ToList()[rand.Next(maxWeithList.Count())];
+                    }
+
+
+
+
+
+
 
                 }
                 else
@@ -625,7 +561,7 @@ namespace Chess.Utils
             }
             catch (Exception ex)
             {
-                //WriteInLog(ex.ToString());
+                Debug.WriteLine(ex.ToString());
                 return null;
                 //return GetBestPositionLocalNotTaskUsingMiltiThreading(colore);
 
@@ -656,7 +592,7 @@ namespace Chess.Utils
                     if (!line.Contains("|"))
                         continue;
                     var datas = line.Split(';');
-                    var newPawn = new Pawn(datas[0], datas[1], null, datas[2], null);
+                    var newPawn = new Pawn(datas[0], datas[1],null, datas[2],null);
                     //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
                     newPawn.IsFirstMove = true;
                     newPawn.IsFirstMoveKing = true;
@@ -850,15 +786,15 @@ namespace Chess.Utils
         {
             Debug.WriteLine("Memory used before collection:       {0:N0}",
          GC.GetTotalMemory(false));
-            Console.WriteLine("Memory used before collection:       {0:N0}",
-                    GC.GetTotalMemory(false));
+            /* Console.WriteLine("Memory used before collection:       {0:N0}",
+                     GC.GetTotalMemory(false));*/
             Debug.WriteLine("Collect");
 
             GC.Collect();
             Debug.WriteLine("Memory used before collection:       {0:N0}",
                   GC.GetTotalMemory(false));
-            Console.WriteLine("Memory used before collection:       {0:N0}",
-                    GC.GetTotalMemory(false));
+            /*   Console.WriteLine("Memory used before collection:       {0:N0}",
+                       GC.GetTotalMemory(false));*/
         }
 
         public static int[] SimplePawnFirstBlackTab64 = {

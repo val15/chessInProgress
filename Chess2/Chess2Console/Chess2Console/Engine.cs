@@ -420,7 +420,7 @@ namespace Chess2Console
 
 
             //Pour T80 et T81
-           // parent.ChildList.RemoveAll(x => Utils.ComputerKingIsMenaced(x.Board));
+           // parent.ChildList.RemoveAll(x => Chess2ConsoleChess2Console.Utils.ComputerKingIsMenaced(x.Board));
 
             //Pour 82
             //pour eviter le nulle on enleve evite de refaire les memes actions
@@ -436,7 +436,7 @@ namespace Chess2Console
             var maxNodeList = parent.ChildList.Where(x => x.Weight == maxWeith).ToList();
 
             // var t_maxNode = maxNodeList.First();
-            // Utils.ComputerKingIsMenaced( t_maxNode.Board);
+            // Chess2ConsoleChess2Console.Utils.ComputerKingIsMenaced( t_maxNode.Board);
             if (maxNodeList.Count != 0)
             {
 
@@ -666,7 +666,7 @@ namespace Chess2Console
             var maxNodeList = parent.ChildList.Where(x => x.Weight == maxWeith).ToList();
 
             // var t_maxNode = maxNodeList.First();
-            // Utils.ComputerKingIsMenaced( t_maxNode.Board);
+            // Chess2ConsoleChess2Console.Utils.ComputerKingIsMenaced( t_maxNode.Board);
             if (maxNodeList.Count != 0)
             {
 
@@ -713,7 +713,7 @@ namespace Chess2Console
                     
                       //Pour T32
                       //lancement d'un deuxiemme niveau
-                      List<int[]> secondResultsList = new List<int[]>();
+                      List<double[]> secondResultsList = new List<double[]>();
                       // List<NodeChess2> secondeNodesList = new List<NodeChess2>();
 
                       //List<NodeChess2> best2List = new List<NodeChess2>();
@@ -730,7 +730,7 @@ namespace Chess2Console
                         //int[] containte[ = 
                         //  secondResultsList.Add($"{currentMaxW}:{node.FromIndex}:{node.ToIndex}");
 
-                        int[] array = new int[] { currentMaxW, node.FromIndex, node.ToIndex };
+                        double[] array = new double[] { currentMaxW, node.FromIndex, node.ToIndex };
                         secondResultsList.Add(array);
 
                       }

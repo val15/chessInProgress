@@ -5,6 +5,7 @@ using Chess.Utils;
 using Chess2Console;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,19 +30,24 @@ namespace BenchChessConsole
 
     public class Benchmarker
     {
+            private string testsDirrectory = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Path.Combine(Environment.CurrentDirectory)).ToString()).ToString()).ToString(), "TESTS");
 
 
-      [Benchmark]
-      public string Livel4Bech()
+            [Benchmark]
+      public string Livel4Bench()
       {
 
 
         //Données de best pour le bench
 
         var bord = new Board();
-        // bord.LoadFromDirectorie(@"D:\tsiry\RANDRENARIZO\Chess\Chess\TESTS\T87BlackInChessInL2");
-        //bord.LoadFromDirectorie(@"D:\tsiry\RANDRENARIZO\Chess\Chess\TESTS\T41LaReineBlancheDoitMenacerLeRoiEnH5");
-        bord.LoadFromDirectorie(@"D:\tsiry\RANDRENARIZO\Chess\Chess\TESTS\T35LePoinNoirNeDoitPasSeMettreEnG5");
+                // bord.LoadFromDirectorie(@"D:\tsiry\RANDRENARIZO\Chess\Chess\TESTS\T87BlackInChessInL2");
+                //bord.LoadFromDirectorie(@"D:\tsiry\RANDRENARIZO\Chess\Chess\TESTS\T41LaReineBlancheDoitMenacerLeRoiEnH5");
+                // var testName = "T35LePoinNoirNeDoitPasSeMettreEnG5";
+               // var testName = "T85LaToureNoirDoitPrendreLePionEnA5";//le moin long
+                var testName = "T92ALaReineNoirNeDoitPasSeMettreEnC3";//le plus long
+                var testPath = Path.Combine(testsDirrectory, testName);
+                bord.LoadFromDirectorie(testPath);
         var watch = new System.Diagnostics.Stopwatch();
         watch.Start();
         //Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
