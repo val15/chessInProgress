@@ -1943,92 +1943,31 @@ namespace Chess.Test
 
             
             var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");mainWindow.ComputerColore = "Black";
+      var testName = "T25LeCavalierNoirDoitMenacerLeRoiBlanch";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        //var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(computerColore, Chess2Utils.GenerateBoardFormPawnList(pawnList), true, null);
+
+        //Assert.AreEqual(nodeResult.Location, "g4");
+
+        var isSuccess = false;
+        string[] accepdedArray = { "a5", "h6", "d6", "g6", "f6" };
+
+        if (accepdedArray.Contains(nodeResult.BestChildPosition))
+          isSuccess = true;
+        Assert.IsTrue(isSuccess);
+        //  Assert.AreEqual(nodeResult.BestChildPosition, "b3");
+      }
 
 
 
-            
-            var pawnListWhite = new List<Pawn>();
-            var pawnListBlack = new List<Pawn>();
+    }
 
-
-
-            //WHITEList
-            var whiteListString = "" +
-              "King;d2;White;False;False;True;True" +
-      "\nQueen;f3;White;False;False;False;False" +
-      "\nRook;h1;White;False;False;False;False" +
-      "\nBishop;c1;White;False;False;False;False" +
-      "\nKnight;c2;White;False;False;False;False" +
-      "\nKnight;d1;White;False;False;False;False" +
-      "\nSimplePawn;b2;White;True;False;False;False" +
-      "\nSimplePawn;d4;White;False;False;False;False" +
-      "\nSimplePawn;e3;White;False;False;False;False" +
-      "\nSimplePawn;f2;White;True;False;False;False" +
-      "\nSimplePawn;g2;White;True;False;False;False" +
-      "\nSimplePawn;h2;White;True;False;False;False";
-            var whiteList = whiteListString.Split('\n');
-            foreach (var line in whiteList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListWhite.Add(newPawn);
-            }
-
-            //BLACKList
-            var blackListString = "" +
-              "King;e8;Black;False;True;True;True" +
-      "\nQueen;d8;Black;False;False;False;False" +
-      "\nRook;a8;Black;False;False;False;False" +
-      "\nRook;h8;Black;False;False;False;False" +
-      "\nBishop;c8;Black;False;False;False;False" +
-      "\nBishop;f8;Black;False;False;False;False" +
-      "\nKnight;a1;Black;False;False;False;False" +
-      "\nKnight;g8;Black;False;False;False;False" +
-      "\nSimplePawn;a7;Black;True;False;False;False" +
-      "\nSimplePawn;b7;Black;True;False;False;False" +
-      "\nSimplePawn;c7;Black;True;False;False;False" +
-      "\nSimplePawn;d7;Black;True;False;False;False" +
-      "\nSimplePawn;e7;Black;True;False;False;False" +
-      "\nSimplePawn;f7;Black;True;False;False;False" +
-      "\nSimplePawn;g7;Black;True;False;False;False" +
-      "\nSimplePawn;h7;Black;True;False;False;False";
-            var blackList = blackListString.Split('\n');
-            foreach (var line in blackList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListBlack.Add(newPawn);
-            }
-
-
-
-            var pawnList = new List<Pawn>();pawnList.AddRange(pawnListWhite);pawnList.AddRange(pawnListBlack);mainWindow.PawnList = pawnList;
-
-            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
-            {
-                var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
-
-
-                //TODO A REVERIFIER
-                //Assert.AreEqual(nodeResult.AssociatePawn.Name, "Knight");
-                // Assert.AreEqual(nodeResult.BestChildPosition, "b3");
-
-                Assert.AreEqual(nodeResult.BestChildPosition, "b3");
-            }
-
-        }
-
-        [TestMethod]
+    [TestMethod]
         public void MTT26LeCavalierNoirDoitBouger()
         {
             /*Le Cavalier noir en f6 doit se deplacer*/
@@ -2155,95 +2094,23 @@ namespace Chess.Test
 
 
             
-            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");mainWindow.ComputerColore = "White";
+            var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");
+      mainWindow.ComputerColore = "White";
+      var testName = "T27LeBishopBlancDoitSeMettreEnA8";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        //var nodeResult = chess2UtilsNotStatic.GetBestPositionLocalUsingMiltiThreading(computerColore, Chess2Utils.GenerateBoardFormPawnList(pawnList), true, null);
+        Assert.AreEqual("a8", nodeResult.BestChildPosition);
+      }
 
 
+    }
 
-
-
-            
-            var pawnListWhite = new List<Pawn>();
-            var pawnListBlack = new List<Pawn>();
-
-
-
-            //WHITEList
-            var whiteListString = "" +
-              "King;e1;White;False;True;True;True" +
-      "\nQueen;d1;White;False;False;False;False" +
-      "\nRook;a1;White;False;False;False;False" +
-      "\nRook;h1;White;False;False;False;False" +
-      "\nBishop;c3;White;False;False;False;False" +
-      "\nBishop;c6;White;False;False;False;False" +
-      "\nKnight;b1;White;False;False;False;False" +
-      "\nKnight;g1;White;False;False;False;False" +
-      "\nSimplePawn;a2;White;True;False;False;False" +
-      "\nSimplePawn;b3;White;False;False;False;False" +
-      "\nSimplePawn;c2;White;True;False;False;False" +
-      "\nSimplePawn;d2;White;True;False;False;False" +
-      "\nSimplePawn;e2;White;True;False;False;False" +
-      "\nSimplePawn;g3;White;False;False;False;False" +
-      "\nSimplePawn;h2;White;True;False;False;False";
-            var whiteList = whiteListString.Split('\n');
-            foreach (var line in whiteList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListWhite.Add(newPawn);
-            }
-
-            //BLACKList
-            var blackListString = "" +
-      "King;e8;Black;False;True;True;True" +
-      "\nQueen;d8;Black;False;False;False;False" +
-      "\nRook;a8;Black;False;False;False;False" +
-      "\nRook;h8;Black;False;False;False;False" +
-      "\nBishop;c8;Black;False;False;False;False" +
-      "\nBishop;g7;Black;False;False;False;False" +
-      "\nKnight;d7;Black;False;False;False;False" +
-      "\nSimplePawn;a7;Black;True;False;False;False" +
-      "\nSimplePawn;b6;Black;False;False;False;False" +
-      "\nSimplePawn;c7;Black;True;False;False;False" +
-      "\nSimplePawn;d6;Black;False;False;False;False" +
-      "\nSimplePawn;f4;Black;False;False;False;False" +
-      "\nSimplePawn;f7;Black;True;False;False;False" +
-      "\nSimplePawn;g5;Black;False;False;False;False" +
-      "\nSimplePawn;h7;Black;True;False;False;False";
-            var blackList = blackListString.Split('\n');
-            foreach (var line in blackList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListBlack.Add(newPawn);
-            }
-
-
-
-            var pawnList = new List<Pawn>();pawnList.AddRange(pawnListWhite);pawnList.AddRange(pawnListBlack);mainWindow.PawnList = pawnList;
-
-            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
-            {
-                var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
-                // Le Bishop blanc doit se mettre en a8
-                var isSucces = false;
-                if (nodeResult.BestChildPosition == "g7" || nodeResult.BestChildPosition == "g8")
-                    isSucces = true;
-                Assert.IsTrue(isSucces);
-            }
-
-        }
-
-        [TestMethod]
+    [TestMethod]
         public void MTT28LePionNoirDoitPrendreLeCavalier()
         {
             /*Le pion noir doit attaque le cavavier en d6*/
@@ -4699,8 +4566,8 @@ namespace Chess.Test
                 //Assert.AreEqual(nodeResult.BestChildPosition, "h1");
                // var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
                 var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
-                Assert.AreEqual(nodeResult.BestChildPosition, "c4");
-              //  Assert.AreEqual(nodeResult.BestChildPosition, "b1");
+               // Assert.AreEqual(nodeResult.BestChildPosition, "c4");
+                Assert.AreEqual(nodeResult.BestChildPosition, "b1");
 
 
             }
@@ -5120,9 +4987,32 @@ namespace Chess.Test
 
         }
 
+    /*tsiry;05-07-2022*/
+    [TestMethod]
+    public void MTT60Suite1BlackIsInChessWhiteToF7()
+    {
+      //la reine blanche doit se mettre en f7
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "White";
 
-        /*tsiry;12-10-2021*/
-        [TestMethod]
+      var testName = "T60Suite1BlackIsInChessWhiteToF7";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+
+        Assert.AreEqual("e6", nodeResult.Location);
+        Assert.AreEqual("f7", nodeResult.BestChildPosition);
+      }
+
+
+
+
+    }
+
+    /*tsiry;12-10-2021*/
+    [TestMethod]
         public void MTT61PourEviterBestSpecificPosition3White()
         {
             
@@ -5252,10 +5142,30 @@ namespace Chess.Test
             
             
         }
+    /*tsiry;05-07-2022*/
+    [TestMethod]
+    public void MTT67SuiteLaReineNoirDoitSeMettreEnE2()
+    {
 
 
-        /*tsiry;18-10-2021*/
-        [TestMethod]
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+
+
+      var testName = "T67SuiteLaReineNoirDoitSeMettreEnE2";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        Assert.AreEqual("h2", nodeResult.Location);
+        Assert.AreEqual("e2", nodeResult.BestChildPosition);
+      }
+    }
+
+
+    /*tsiry;18-10-2021*/
+    [TestMethod]
         public void MTT67EchecBlancLeRoiBlanchDoitBougerPourNePasPerdre()
         {
             
@@ -5263,73 +5173,16 @@ namespace Chess.Test
             var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5");mainWindow.ComputerColore = "White";
 
 
-
-
-            
-            var pawnListWhite = new List<Pawn>();
-            var pawnListBlack = new List<Pawn>();
-
-
-
-            //WHITEList
-            var whiteListString = "" +
-      "King;f1;White;False;False;True;True" +
-      "\nQueen;c3;White;False;False;False;False" +
-      "\nRook;a1;White;False;False;False;False" +
-      "\nKnight;b1;White;False;False;False;False" +
-      "\nSimplePawn;a4;White;False;False;False;False" +
-      "\nSimplePawn;b2;White;True;False;False;False" +
-      "\nSimplePawn;c4;White;False;False;False;False" +
-      "\nSimplePawn;h4;White;False;False;False;False";
-
-            ;
-            var whiteList = whiteListString.Split('\n');
-            foreach (var line in whiteList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListWhite.Add(newPawn);
-            }
-
-            //BLACKList
-            var blackListString = "" +
-      "King;c8;Black;False;True;True;False" +
-      "\nQueen;h2;Black;False;False;False;False" +
-      "\nRook;d8;Black;False;False;False;False" +
-      "\nRook;f4;Black;False;False;False;False" +
-      "\nKnight;d4;Black;False;False;False;False" +
-      "\nSimplePawn;a7;Black;True;False;False;False" +
-      "\nSimplePawn;b6;Black;False;False;False;False" +
-      "\nSimplePawn;c5;Black;False;False;False;False" +
-      "\nSimplePawn;g7;Black;True;False;False;False" +
-      "\nSimplePawn;h3;Black;False;False;False;False";
-            var blackList = blackListString.Split('\n');
-            foreach (var line in blackList)
-            {
-                var datas = line.Split(';');
-                var newPawn = new Pawn(datas[0], datas[1], new Button(), datas[2], mainWindow);
-                //;{pawn.IsFirstMove};{pawn.IsFirstMoveKing};{pawn.IsLeftRookFirstMove};{pawn.IsRightRookFirstMove}
-                newPawn.IsFirstMove = bool.Parse(datas[3]);
-                newPawn.IsFirstMoveKing = bool.Parse(datas[4]);
-                newPawn.IsLeftRookFirstMove = bool.Parse(datas[5]);
-                newPawn.IsRightRookFirstMove = bool.Parse(datas[6]);
-                pawnListBlack.Add(newPawn);
-            }
-
-
-
-            var pawnList = new List<Pawn>();pawnList.AddRange(pawnListWhite);pawnList.AddRange(pawnListBlack);mainWindow.PawnList = pawnList;
-            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
-            {
-                var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
-                Assert.AreEqual(nodeResult.BestChildPosition, "e1");
-            }
-        }
+      var testName = "T67EchecBlancLaReineDoitProtegerLeRoiEtSeMettreEnF3";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        Assert.AreEqual("f3", nodeResult.BestChildPosition);
+      }
+    }
+  
 
         /*tsiry;19-10-2021*/
         [TestMethod]
@@ -5766,11 +5619,11 @@ namespace Chess.Test
             {
                 var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
 
-                // var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
-                //  Assert.IsNull(randomList);
-                Assert.AreEqual(nodeResult.Location, "c1");
-                Assert.AreEqual(nodeResult.BestChildPosition, "b2");
-            }
+        // var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+        //  Assert.IsNull(randomList);
+        Assert.AreEqual(nodeResult.Location, "a2");
+        Assert.AreEqual(nodeResult.BestChildPosition, "b2");
+      }
         }
 
 
@@ -6315,11 +6168,11 @@ namespace Chess.Test
             {
                 var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
 
-                //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
-                //Assert.IsNull(randomList);
-                //echec si nodeResult.Location ==  nodeResult.BestChildPosition
-                Assert.AreEqual("f3", nodeResult.BestChildPosition);
-            }
+        //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+        //Assert.IsNull(randomList);
+        //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+        Assert.AreEqual("a8", nodeResult.BestChildPosition);
+      }
         }
         /*tsiry;11-01-2022
         * */
@@ -6368,12 +6221,13 @@ namespace Chess.Test
             {
                 var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
 
-              
-                Assert.AreEqual(nodeResult.BestChildPosition, "e3");
-            }
+
+        Assert.IsTrue(nodeResult.BestChildPosition == "e3" || nodeResult.BestChildPosition == "g3");//e3 ou g3 
+
+      }
 
 
-        }
+    }
 
         [TestMethod]
         public void MTT88LesBlanchDoiventEviterLEchec()
@@ -6386,21 +6240,18 @@ namespace Chess.Test
             var testName = "T88LesBlanchDoiventEviterLEchec";
             var testPath = Path.Combine(testsDirrectory, testName);
 
-            mainWindow.LoadFromDirectorie(testPath);
-            using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
-            {
-                var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+      
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
 
-                //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
-                //Assert.IsNull(randomList);
-                //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+        Assert.IsTrue(nodeResult.BestChildPosition == "e3" || nodeResult.BestChildPosition == "g3");//e3 ou g3 
 
-
-                Assert.AreEqual(nodeResult.BestChildPosition, "e3");
-            }
+      }
 
 
-        }
+    }
         [TestMethod]
         public void MTT88LesNoirDoiventSeMettreEnF2()
         {
@@ -6454,7 +6305,7 @@ namespace Chess.Test
 
         }
 
-        /*tsiry;16-03-2022*/
+     /*   //tsiry;16-03-2022
         [TestMethod]
         public void MTT90LePoinNoirDoitSeMettreEnH5()
         {
@@ -6481,7 +6332,7 @@ namespace Chess.Test
 
 
         }
-        /*tsiry;17-03-2022*/
+       */ /*tsiry;17-03-2022*/
         [TestMethod]
         public void MTT91LePoinNoirNeDoitPasSeMettreEnH5()
         {
@@ -6660,9 +6511,10 @@ namespace Chess.Test
             using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
             {
                 var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
-                Assert.AreEqual(nodeResult.BestChildPosition, "h1");
+             //   Assert.AreEqual(nodeResult.BestChildPosition, "h1");
+        Assert.AreEqual("f2", nodeResult.Location);//h1
 
-            }
+      }
             //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
             //Assert.IsNull(randomList);
             //echec si nodeResult.Location ==  nodeResult.BestChildPosition
@@ -6674,8 +6526,53 @@ namespace Chess.Test
         }
 
 
-        /*tsiry;23-05-2022*/
-        [TestMethod]
+    /*tsiry;05-07-2022*/
+    [TestMethod]
+    public void MTT95SuiteWhiteE4ToG3()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "White";
+
+      var testName = "T95SuiteWhiteE4ToG3";
+      var testPath = Path.Combine(testsDirrectory, testName);
+       mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+
+        Assert.AreEqual("g3", nodeResult.BestChildPosition);//h1
+
+      }
+    }
+
+
+    [TestMethod]
+    public void MTT95SuiteSuite()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+
+      var testName = "T95SuiteSuite";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        Assert.AreEqual("f2", nodeResult.BestChildPosition);//h1
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+
+    /*tsiry;23-05-2022*/
+    [TestMethod]
          public void MTT95BLeCavalierBlanchDoitAttaquerEnF2()
         {
 
@@ -6699,5 +6596,30 @@ namespace Chess.Test
 
         }
 
+
+    /*tsiry;24-06-2022*/
+    [TestMethod]
+    public void MTT96LeCavalierBlanchDoitSePettreEnC7()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "White";
+      var testName = "T96LeCavalierBlanchDoitSePettreEnC7";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        Assert.AreEqual(nodeResult.BestChildPosition, "c7");
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
     }
+  }
 }

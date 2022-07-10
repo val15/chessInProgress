@@ -1248,6 +1248,60 @@ namespace Chess2Console
             return results;
 
         }
-        #endregion
+    /// <summary>
+    /// tsiry;02-07-2022
+    /// pour determiner les mouvement possibles du rois si ce dérnier est menacé
+    /// </summary>
+    public List<int> GetKingPossiblesMoveIndex(string targetkingColor)
+    {
+      try
+      {
+
+        var targetkingindex = this.GetCases().ToList().IndexOf($"K|{targetkingColor}");
+        var indexInTab64 = Utils.Tab64[targetkingindex];
+        var results = new List<int>();
+        var toAddList = new List<int>();
+        toAddList.Add(-11);
+        toAddList.Add(-10);
+        toAddList.Add(-9);
+        toAddList.Add(+1);
+        toAddList.Add(+11);
+        toAddList.Add(10);
+        toAddList.Add(9);
+        toAddList.Add(-1);
+
+
+
+        foreach (var toAdd in toAddList)
+        {
+
+          var destinationIndexInTab64 = indexInTab64 + toAdd;
+          var destinationIndex = Utils.Tab64.ToList().IndexOf(destinationIndexInTab64);
+          if (destinationIndex < 0 || destinationIndex > 63)
+            continue;
+          var isContent = GetIsContent(destinationIndex, targetkingColor);
+          if (isContent == -1)
+            results.Add(destinationIndex);
+          if (isContent == 0)
+          {
+            //results.Add(destinationIndex);
+            results.Add(destinationIndex);
+
+          }
+
+
+        }
+
+        return results;
+
+      }
+      catch (Exception ex)
+      {
+
+        return null;
+      }
     }
+
+    #endregion
+  }
 }

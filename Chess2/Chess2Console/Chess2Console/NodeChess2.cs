@@ -326,113 +326,26 @@ namespace Chess2Console
             Color = color;
             ChildList = new List<NodeChess2>();
 
-            //Pour T69
-            /* var kingIndex = board.GetCases().ToList().IndexOf($"K|{computeurColor}");
-               if (kingIndex == -1)
-                 Weight =  -999;
-
-               */
-            /*if(parent != null)
-            {
-              if (Utils.KingIsInChess(parent.Board, Utils.OpinionColor))
-              {
-                var t_in = 0;
-              }
-            }
-         */
 
 
 
-
-
-
-            if (Level == maxDeepLevel)
-            {
-                //Pour T95B et T62
-                if (Level == 2)
-                {
-
-                    if (GetIsInChess(Utils.OpinionColor, Utils.ComputerColor))
-                    {
-
-                        Weight = -999;
-                        /*  if(ToIndex==31)
-                              Board.PrintInDebug();*/
-                        return;
-                    }
-                }
-
-                var opinionKingIndex = board.GetCases().ToList().IndexOf($"K|{Utils.OpinionColor}");
-                if (opinionKingIndex == -1)
-                {
-                    Weight = 999;
-                    return;
-                }
-                var kingIndex = board.GetCases().ToList().IndexOf($"K|{computeurColor}");
-                if (kingIndex == -1)
-                {
-                    Weight = -999;
-                    return;
-                }
-
-
-
-
-
-                /* if(Level < 4)
-                 {
-                   // pour T87
-                   if (Utils.KingIsInChess(board, Utils.ComputerColor))
-                   {
-                     Weight = -999;
-                     return;
-                   }
-
-                   //if (Utils.KingIsInChess2(Board, Utils.OpinionColor))
-                   //{
-                   //  Weight = 999;
-                   //  return;
-                   //}
-                 }*/
-
-
-
-
-
-
-
-
-                Board.CalculeScores();
-                if (computeurColor == "B")
-                    Weight = Board.BlackScore - Board.WhiteScore;
-                else
-                    Weight = Board.WhiteScore - Board.BlackScore;
-
-
-
-
-                /* if (TargetIndexIsMenaced(board, color, computeurColor, ToIndex))
-                     Weight -= GetValue()-1;*/
-                //Is protected
-
-                /*  var alierIndexList = new List<int>();
-                  ///Board.GetCases().Where(x => x.Contains($"|{Color}"));
-                  var i = 0;
-                  foreach (var currentCase in Board.GetCases())
-                  {
-                      if (currentCase.Contains($"|{Color}"))
-                          alierIndexList.Add(i);
-                      i++;
-                  }
-                  foreach (var index in alierIndexList)
-                  {
-                      if (GetIsLocationIsProtected(index, color, computeurColor))
-                          Weight++;
-                  }*/
-
-
-
-            }
+      var opinionKingIndex = board.GetCases().ToList().IndexOf($"K|{Utils.OpinionColor}");
+      if (opinionKingIndex == -1)
+      {
+        Weight = 999;
+        return;
+      }
+      var kingIndex = board.GetCases().ToList().IndexOf($"K|{computeurColor}");
+      if (kingIndex == -1)
+      {
+        Weight = -999;
+        return;
+      }
+      Board.CalculeScores();
+      if (computeurColor == "B")
+        Weight = Board.BlackScore - Board.WhiteScore;
+      else
+        Weight = Board.WhiteScore - Board.BlackScore;
 
 
 
@@ -443,7 +356,7 @@ namespace Chess2Console
 
 
 
-        }
+    }
 
         public void CalculeScores()
         {

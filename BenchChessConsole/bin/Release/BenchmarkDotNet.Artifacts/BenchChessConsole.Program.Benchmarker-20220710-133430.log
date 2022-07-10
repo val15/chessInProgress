@@ -1,0 +1,2419 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 3 benchmark(s) in total *****
+// ***** Building 3 exe(s) in Parallel: Start   *****
+// ***** Done, took 00:00:03 (3.15 sec)   *****
+// Found 3 benchmarks:
+//   Benchmarker.Livel4Bench: LegacyJitX64(Jit=LegacyJit, Platform=X64)
+//   Benchmarker.Livel4Bench: LegacyJitX86(Jit=LegacyJit, Platform=X86)
+//   Benchmarker.Livel4Bench: RyuJitX64(Jit=RyuJit, Platform=X64)
+
+// **************************
+// Benchmark: Benchmarker.Livel4Bench: LegacyJitX64(Jit=LegacyJit, Platform=X64)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: E:\inProgressMM\chessInProgress\BenchChessConsole\bin\Release\7ccefd15-9c65-4861-ab66-66c60a655cd6.exe --benchmarkName "BenchChessConsole.Program+Benchmarker.Livel4Bench" --job "LegacyJitX64" --benchmarkId 0 in 
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Framework 4.8 (4.8.4515.0), X64 LegacyJIT
+// GC=Concurrent Workstation
+// Job: LegacyJitX64(Jit=LegacyJit, Platform=X64)
+
+OverheadJitting  1: 1 op, 681000.00 ns, 681.0000 us/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 10, Thread Id= 4
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 4
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 5
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 4
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 5
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91514 
+g8 => h8
+WorkloadJitting  1: 1 op, 92291859800.00 ns, 92.2919 s/op
+
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 5
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 8
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 7
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 9
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91289 
+g8 => h8
+WorkloadWarmup   1: 1 op, 92017298300.00 ns, 92.0173 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 6
+pawnIndex : 10, Thread Id= 3
+pawnIndex : 24, Thread Id= 7
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 4
+pawnIndex : 17, Thread Id= 9
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 3
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 7
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 10
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 7
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 92091 
+g8 => h8
+WorkloadWarmup   2: 1 op, 92852649000.00 ns, 92.8526 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 4
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 6
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 4
+pawnIndex : 2, Thread Id= 8
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 9
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 4
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91114 
+g8 => h8
+WorkloadWarmup   3: 1 op, 91832525700.00 ns, 91.8325 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 8
+pawnIndex : 24, Thread Id= 9
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 5
+pawnIndex : 17, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 10
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 9
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91368 
+g8 => h8
+WorkloadWarmup   4: 1 op, 92131429200.00 ns, 92.1314 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 9
+pawnIndex : 10, Thread Id= 3
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 4
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 3
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 5
+pawnIndex : 2, Thread Id= 7
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 3
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 5
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 92003 
+g8 => h8
+WorkloadWarmup   5: 1 op, 92721227800.00 ns, 92.7212 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 5
+pawnIndex : 10, Thread Id= 7
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 9
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 7
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 8
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91494 
+g8 => h8
+WorkloadWarmup   6: 1 op, 92252350400.00 ns, 92.2524 s/op
+
+// BeforeActualRun
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 6
+pawnIndex : 10, Thread Id= 4
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 4
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 5
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 4
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 5
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91913 
+g8 => h8
+WorkloadActual   1: 1 op, 92631304000.00 ns, 92.6313 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 5
+pawnIndex : 10, Thread Id= 8
+pawnIndex : 24, Thread Id= 4
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 4
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 8
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 4
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91291 
+g8 => h8
+WorkloadActual   2: 1 op, 92052996000.00 ns, 92.0530 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 3
+pawnIndex : 24, Thread Id= 7
+pawnIndex : 1, Thread Id= 8
+pawnIndex : 6, Thread Id= 6
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 3
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 7
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 3
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 7
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 92541 
+g8 => h8
+WorkloadActual   3: 1 op, 93255779300.00 ns, 93.2558 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 8
+pawnIndex : 17, Thread Id= 5
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+-18  g6 =>  g5
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91987 
+g8 => h8
+WorkloadActual   4: 1 op, 92754169600.00 ns, 92.7542 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 8
+pawnIndex : 6, Thread Id= 7
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 5
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 4
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91765 
+g8 => h8
+WorkloadActual   5: 1 op, 92484162900.00 ns, 92.4842 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 6
+pawnIndex : 10, Thread Id= 4
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 7
+pawnIndex : 17, Thread Id= 9
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 4
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+-18  g6 =>  g5
+pawnIndex : 9, Thread Id= 4
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91285 
+g8 => h8
+WorkloadActual   6: 1 op, 92059286300.00 ns, 92.0593 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 7
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 6
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 7
+pawnIndex : 2, Thread Id= 8
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 1
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 9
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 7
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91330 
+g8 => h8
+WorkloadActual   7: 1 op, 92068814800.00 ns, 92.0688 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 8
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 4
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 8
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 92817 
+g8 => h8
+WorkloadActual   8: 1 op, 93579956300.00 ns, 93.5800 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 6
+pawnIndex : 10, Thread Id= 4
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 4
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 4
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91701 
+g8 => h8
+WorkloadActual   9: 1 op, 92459770900.00 ns, 92.4598 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 8
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 7
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 5
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 1
+-17,5  b8 =>  a6
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 8
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 5
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-17,5  b8 =>  a6
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91029 
+g8 => h8
+WorkloadActual  10: 1 op, 91793513200.00 ns, 91.7935 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 5
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 4
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 4
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 6
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 9
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 4
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91514 
+g8 => h8
+WorkloadActual  11: 1 op, 92267270800.00 ns, 92.2673 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 9
+pawnIndex : 17, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 10
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91549 
+g8 => h8
+WorkloadActual  12: 1 op, 92312617900.00 ns, 92.3126 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 8
+pawnIndex : 24, Thread Id= 7
+pawnIndex : 1, Thread Id= 9
+pawnIndex : 6, Thread Id= 4
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 7
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 5
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 8
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 7
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91881 
+g8 => h8
+WorkloadActual  13: 1 op, 92613107400.00 ns, 92.6131 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 8
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 3
+pawnIndex : 17, Thread Id= 9
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 5
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 8
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+-18  g6 =>  g5
+pawnIndex : 9, Thread Id= 5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 8
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-18  g6 =>  g5
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91708 
+g8 => h8
+WorkloadActual  14: 1 op, 92476666900.00 ns, 92.4767 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 8
+pawnIndex : 10, Thread Id= 9
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 7
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+pawnIndex : 2, Thread Id= 6
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 9
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91307 
+g8 => h8
+WorkloadActual  15: 1 op, 92029339600.00 ns, 92.0293 s/op
+
+// AfterActualRun
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 4
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 4
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 5
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 6
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 4
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91378 
+g8 => h8
+WorkloadResult   1: 1 op, 92631304000.00 ns, 92.6313 s/op
+WorkloadResult   2: 1 op, 92052996000.00 ns, 92.0530 s/op
+WorkloadResult   3: 1 op, 93255779300.00 ns, 93.2558 s/op
+WorkloadResult   4: 1 op, 92754169600.00 ns, 92.7542 s/op
+WorkloadResult   5: 1 op, 92484162900.00 ns, 92.4842 s/op
+WorkloadResult   6: 1 op, 92059286300.00 ns, 92.0593 s/op
+WorkloadResult   7: 1 op, 92068814800.00 ns, 92.0688 s/op
+WorkloadResult   8: 1 op, 92459770900.00 ns, 92.4598 s/op
+WorkloadResult   9: 1 op, 91793513200.00 ns, 91.7935 s/op
+WorkloadResult  10: 1 op, 92267270800.00 ns, 92.2673 s/op
+WorkloadResult  11: 1 op, 92312617900.00 ns, 92.3126 s/op
+WorkloadResult  12: 1 op, 92613107400.00 ns, 92.6131 s/op
+WorkloadResult  13: 1 op, 92476666900.00 ns, 92.4767 s/op
+WorkloadResult  14: 1 op, 92029339600.00 ns, 92.0293 s/op
+GC:  6313 1619 20 36221347984 1
+Threading:  0 0 1
+
+// AfterAll
+// Benchmark Process 1408 has exited with code 0.
+
+Mean = 92.376 s, StdErr = 0.101 s (0.11%), N = 14, StdDev = 0.376 s
+Min = 91.794 s, Q1 = 92.062 s, Median = 92.386 s, Q3 = 92.581 s, Max = 93.256 s
+IQR = 0.519 s, LowerFence = 91.283 s, UpperFence = 93.360 s
+ConfidenceInterval = [91.951 s; 92.800 s] (CI 99.9%), Margin = 0.425 s (0.46% of Mean)
+Skewness = 0.58, Kurtosis = 2.8, MValue = 2
+
+// **************************
+// Benchmark: Benchmarker.Livel4Bench: LegacyJitX86(Jit=LegacyJit, Platform=X86)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: E:\inProgressMM\chessInProgress\BenchChessConsole\bin\Release\453ce8af-f677-42f3-9e08-ceb7f748ca80.exe --benchmarkName "BenchChessConsole.Program+Benchmarker.Livel4Bench" --job "LegacyJitX86" --benchmarkId 0 in 
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Framework 4.8 (4.8.4515.0), X86 LegacyJIT
+// GC=Concurrent Workstation
+// Job: LegacyJitX86(Jit=LegacyJit, Platform=X86)
+
+OverheadJitting  1: 1 op, 289400.00 ns, 289.4000 us/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 4
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 4
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 5
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 4
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 5
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 93130 
+g8 => h8
+WorkloadJitting  1: 1 op, 95762050000.00 ns, 95.7621 s/op
+
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 5
+pawnIndex : 5, Thread Id= 9
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 8
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 7
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 5
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 6
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 94269 
+g8 => h8
+WorkloadWarmup   1: 1 op, 96973334600.00 ns, 96.9733 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 5
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 6
+pawnIndex : 26, Thread Id= 9
+-18  a5 =>  a4
+pawnIndex : 31, Thread Id= 5
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 10
+-18  h5 =>  h4
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 6
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-18  h5 =>  h4
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 89653 
+g8 => h8
+WorkloadWarmup   2: 1 op, 92536918200.00 ns, 92.5369 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 9
+pawnIndex : 5, Thread Id= 1
+pawnIndex : 10, Thread Id= 7
+pawnIndex : 24, Thread Id= 12
+pawnIndex : 1, Thread Id= 11
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 7
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 12
+pawnIndex : 2, Thread Id= 4
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 12
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91572 
+g8 => h8
+WorkloadWarmup   3: 1 op, 94229140200.00 ns, 94.2291 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 12
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 10, Thread Id= 11
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 8
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 11
+pawnIndex : 2, Thread Id= 10
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 12
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 11
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  a5 =>  a4
+-18  c7 =>  c6
+-17,5  a8 =>  a7
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 93649 
+g8 => h8
+WorkloadWarmup   4: 1 op, 96590485000.00 ns, 96.5905 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 8
+pawnIndex : 10, Thread Id= 7
+pawnIndex : 24, Thread Id= 4
+pawnIndex : 1, Thread Id= 9
+pawnIndex : 6, Thread Id= 6
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 7
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 4
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 3
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 4
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  a6
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 90480 
+g8 => h8
+WorkloadWarmup   5: 1 op, 93257490100.00 ns, 93.2575 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 4
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 5
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 4
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 6
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-17,5  b8 =>  d7
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 94962 
+g8 => h8
+WorkloadWarmup   6: 1 op, 97895240900.00 ns, 97.8952 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 5
+pawnIndex : 10, Thread Id= 7
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 3
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 7
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 92706 
+g8 => h8
+WorkloadWarmup   7: 1 op, 95576202100.00 ns, 95.5762 s/op
+
+// BeforeActualRun
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 6
+pawnIndex : 5, Thread Id= 8
+pawnIndex : 10, Thread Id= 3
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 4
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 3
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 6
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 3
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 89866 
+g8 => h8
+WorkloadActual   1: 1 op, 92560717000.00 ns, 92.5607 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 7
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 8
+pawnIndex : 6, Thread Id= 5
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 7
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 3
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 1
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 3
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  g7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 90522 
+g8 => h8
+WorkloadActual   2: 1 op, 93459299500.00 ns, 93.4593 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 3
+pawnIndex : 5, Thread Id= 9
+pawnIndex : 10, Thread Id= 1
+pawnIndex : 24, Thread Id= 8
+pawnIndex : 1, Thread Id= 7
+pawnIndex : 6, Thread Id= 5
+pawnIndex : 17, Thread Id= 6
+-18  c7 =>  c6
+pawnIndex : 22, Thread Id= 1
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 8
+-18  g6 =>  g5
+pawnIndex : 2, Thread Id= 1
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 3
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 8
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-18  g6 =>  g5
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 91355 
+g8 => h8
+WorkloadActual   3: 1 op, 94081096500.00 ns, 94.0811 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 8
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 6
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 5
+pawnIndex : 6, Thread Id= 4
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 8
+-17,5  b8 =>  a6
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 6
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-17,5  b8 =>  a6
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 94533 
+g8 => h8
+WorkloadActual   4: 1 op, 97376798600.00 ns, 97.3768 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 7
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 3
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 5
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 7
+-17,5  a8 =>  a7
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 7
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-17,5  b8 =>  c6
+-5  g8 =>  h8
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 96196 
+g8 => h8
+WorkloadActual   5: 1 op, 99308368800.00 ns, 99.3084 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 7
+pawnIndex : 5, Thread Id= 3
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 6
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 5
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a7
+pawnIndex : 9, Thread Id= 7
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a7
+-5  g8 =>  h8
+-17,5  b8 =>  d7
+-18  b6 =>  a7
+-17,5  f8 =>  e7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 93563 
+g8 => h8
+WorkloadActual   6: 1 op, 96387679800.00 ns, 96.3877 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 8
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 6
+pawnIndex : 1, Thread Id= 3
+pawnIndex : 6, Thread Id= 4
+-18  c7 =>  c6
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 6
+pawnIndex : 17, Thread Id= 5
+-17,5  a8 =>  a6
+pawnIndex : 2, Thread Id= 1
+pawnIndex : 9, Thread Id= 9
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-17,5  f8 =>  g7
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 6
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-17,5  f8 =>  g7
+-18  b6 =>  a7
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 95689 
+g8 => h8
+WorkloadActual   7: 1 op, 98565266000.00 ns, 98.5653 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 6
+pawnIndex : 5, Thread Id= 4
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 1
+pawnIndex : 1, Thread Id= 3
+pawnIndex : 6, Thread Id= 7
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 5
+-18  a5 =>  a4
+pawnIndex : 26, Thread Id= 1
+pawnIndex : 2, Thread Id= 9
+-17,5  a8 =>  a6
+pawnIndex : 9, Thread Id= 6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+pawnIndex : 31, Thread Id= 1
+-18  h5 =>  h4
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+-18  h5 =>  h4
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fromIndex : 26 => toIndex : 35 = -18
+fromIndex : 26 => toIndex : 19 = -18
+fromIndex : 26 => toIndex : 33 = -18
+fromIndex : 26 => toIndex : 40 = -18
+--Best for all Levels--
+-5  g8 =>  h8
+EMULATION : 
+BEST Node = -5
+DURATION => 93956 
+g8 => h8
+WorkloadActual   8: 1 op, 97023721900.00 ns, 97.0237 s/op
+Computer color = B
+Opinion color = W
+L4--------------------
+pawnIndex : 0, Thread Id= 1
+pawnIndex : 5, Thread Id= 7
+pawnIndex : 10, Thread Id= 5
+pawnIndex : 24, Thread Id= 3
+pawnIndex : 1, Thread Id= 4
+pawnIndex : 6, Thread Id= 8
+-18  c7 =>  c6
+pawnIndex : 17, Thread Id= 5
+pawnIndex : 26, Thread Id= 10
+pawnIndex : 31, Thread Id= 9
+pawnIndex : 2, Thread Id= 11
+pawnIndex : 9, Thread Id= 12
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-18  h5 =>  h4
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+pawnIndex : 22, Thread Id= 5
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+bestNodList 
+-18  c7 =>  c6
+-18  a5 =>  a4
+-17,5  a8 =>  a6
+-18  h5 =>  h4
+-5  g8 =>  h8
+-17,5  b8 =>  c6
+-18  b6 =>  a7
+-17,5  f8 =>  d6
+-18  g6 =>  g5
+-9  c8 =>  e6
+-10  c5 =>  c3
+Level4BlackList--------
+fromIndex : 6 => toIndex : 14 = -10
+fromIndex : 17 => toIndex : 18 = -999
+fromIndex : 17 => toIndex : 16 = -999
+fromIndex : 2 => toIndex : 11 = -18
+fromIndex : 2 => toIndex : 29 = -18
+fromIndex : 2 => toIndex : 38 = -18
+fromIndex : 26 => toIndex : 29 = -18
+fromIndex : 26 => toIndex : 30 = -18
+fromIndex : 26 => toIndex : 18 = -18
+fro
