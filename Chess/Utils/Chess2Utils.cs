@@ -179,7 +179,7 @@ namespace Chess.Utils
 
        /* if (level < 4)
         {*/
-      var computerPawnsIndex = boarChess2.GetCasesIndex(cpuColor).ToList();//.OrderBy(x=>x);
+      var computerPawnsIndex = boarChess2.GetCasesIndexForColor(cpuColor).ToList();//.OrderBy(x=>x);
       bestNodList.AddRange(EmuleAllIndexInParallelForEach(boarChess2, computerPawnsIndex, level,cpuColor,  IsReprise,SpecifiBoardList));                                                                                 // var computerPawnsIndex = new List<int>();
 
      /* }

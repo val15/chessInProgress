@@ -254,7 +254,7 @@ namespace Chess.Utils
 
 
 
-      var computerPawnsIndex = boarChess2.GetCasesIndex(cpuColor).ToList();//.OrderBy(x=>x);
+      var computerPawnsIndex = boarChess2.GetCasesIndexForColor(cpuColor).ToList();//.OrderBy(x=>x);
       bestNodList.AddRange(EmuleAllIndexInParallelForEach(boarChess2, computerPawnsIndex, level, cpuColor, IsReprise, SpecifiBoardList));
       return bestNodList;
 

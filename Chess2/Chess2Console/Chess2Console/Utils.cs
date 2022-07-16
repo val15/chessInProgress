@@ -60,7 +60,7 @@ namespace Chess2Console
         //     return false;
 
         var targetkingindex = inBoard.GetCases().ToList().IndexOf($"K|{targetkingColor}");
-        var alliesIndex = inBoard.GetCasesIndex(targetkingColor).ToList();
+        var alliesIndex = inBoard.GetCasesIndexForColor(targetkingColor).ToList();
         alliesIndex.Remove(targetkingindex);
         //var possibleMovesAllies = 
         foreach (var alieFromIndex in alliesIndex)
@@ -421,7 +421,7 @@ namespace Chess2Console
 
             var kingIsInChess = true;
             //on prend tous les index des pion adverse
-            var opinionCaseIndex = board.GetCasesIndex(OpinionColor);
+            var opinionCaseIndex = board.GetCasesIndexForColor(OpinionColor);
             //on prend tous les index menacés par les pions adverses
             var menacedIndexByOpinion = new List<PossibleMove>();
             //on prend tous les possible moves des opinions
@@ -561,7 +561,7 @@ namespace Chess2Console
             //dans le cas la case de déstination contien un pion adverse, on l'enleve
             if (cloneBoard.GetCases()[toIndex].Contains("|"))
                 cloneBoard.GetCases()[toIndex] = "__";
-            var opinionIndexs = cloneBoard.GetCasesIndex(opinionColor);
+            var opinionIndexs = cloneBoard.GetCasesIndexForColor(opinionColor);
             foreach (var index in opinionIndexs)
             {
 
@@ -636,7 +636,7 @@ namespace Chess2Console
             if (Utils.ComputerColor == "W")
                 opinionColor = "B";
 
-            var opinionIndexs = board.GetCasesIndex(opinionColor);
+            var opinionIndexs = board.GetCasesIndexForColor(opinionColor);
             foreach (var item in opinionIndexs)
             {
                 var possibleMove = board.GetPossibleMoves(item, 0).Select(x => x.Index);

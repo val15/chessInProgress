@@ -666,7 +666,7 @@ namespace Chess2Console
                 var opinionColor = "W";
                 if (color == "W")
                     opinionColor = "B";
-                var opinionPawns = GetCasesIndex(opinionColor);
+                var opinionPawns = GetCasesIndexForColor(opinionColor);
 
                 var possiblesMovesOpinionIndex = new List<int>();
                 foreach (var index in opinionPawns)

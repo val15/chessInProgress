@@ -78,7 +78,7 @@ namespace Chess2Console
             //     if (caseBoard.Contains($"|{opinionColor}"))
             //         opinionListIndex.Add(i);
             // }
-            var opinionListIndex = board.GetCasesIndex(opinionColor);
+            var opinionListIndex = board.GetCasesIndexForColor(opinionColor);
 
 
             foreach (var index in opinionListIndex)
@@ -152,7 +152,7 @@ namespace Chess2Console
             //     if (caseBoard.Contains($"|{opinionColor}"))
             //         opinionListIndex.Add(i);
             // }
-            var opinionListIndex = board.GetCasesIndex(opinionColor);
+            var opinionListIndex = board.GetCasesIndexForColor(opinionColor);
 
 
             foreach (var index in opinionListIndex)
