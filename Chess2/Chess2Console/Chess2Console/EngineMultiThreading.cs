@@ -745,7 +745,14 @@ namespace Chess2Console
             }
 
 
-
+            //T99 et T78
+            foreach (var node in parent.ChildList)
+            {
+              if (!Chess2Console.Utils.TargetIndexIsMenaced(parent.Board, Utils.ComputerColor, node.FromIndex) && Chess2Console.Utils.TargetIndexIsMenaced(node.Board, Utils.ComputerColor, node.ToIndex))
+              {
+                node.Weight -= node.Board.GetWeightInIndex(node.ToIndex);
+              }
+            }
 
             var maxWeith = parent.ChildList.Max(x => x.Weight);
 
@@ -940,17 +947,7 @@ namespace Chess2Console
 
     public void Dispose()
     {
-      Debug.WriteLine("Memory used before collection:       {0:N0}",
- GC.GetTotalMemory(false));
-      /*  Console.WriteLine("Memory used before collection:       {0:N0}",
-                GC.GetTotalMemory(false));*/
-      Debug.WriteLine("Collect");
-
-      GC.Collect();
-      Debug.WriteLine("Memory used before collection:       {0:N0}",
-            GC.GetTotalMemory(false));
-      /*  Console.WriteLine("Memory used before collection:       {0:N0}",
-                GC.GetTotalMemory(false));*/
+      Chess2Console.Utils.GCColect();
 
     }
   }

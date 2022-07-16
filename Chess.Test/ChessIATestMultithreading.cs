@@ -6621,5 +6621,109 @@ namespace Chess.Test
 
 
     }
+
+
+
+    /*tsiry;11-07-2022*/
+    [TestMethod]
+    public void MTT97AWhitePourAviterT97WhiteNotF1ToG2()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "White";
+      var testName = "T97AWhitePourAviterT97WhiteNotF1ToG2";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);
+        Assert.AreNotEqual(nodeResult.BestChildPosition, "g2");
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+
+    /*tsiry;11-07-2022*/
+    [TestMethod]
+    public void MTT97BBlackWhinG4ToE2()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+      var testName = "T97BBlackWhinG4ToE2";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore); Assert.AreEqual(nodeResult.Location, "g4");
+        Assert.AreEqual(nodeResult.BestChildPosition, "e2");
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+
+
+    /*tsiry;14-07-2022*/
+    [TestMethod]
+    public void MTT98BlackNotNullE8ToF7()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+      var testName = "T98BlackNotNullE8ToF7";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore); Assert.AreEqual(nodeResult.Location, "e8");
+        Assert.AreEqual(nodeResult.BestChildPosition, "f7");
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+    /*tsiry;14-07-2022*/
+    [TestMethod]
+    public void MTT99WhiteNotC7ToF7()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "White";
+      var testName = "T99WhiteNotC7ToF7";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore); 
+        Assert.IsFalse(nodeResult.BestChildPosition == "f7" || nodeResult.BestChildPosition == "b8");
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+
+
   }
 }

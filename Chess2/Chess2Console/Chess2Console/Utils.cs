@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,46 @@ namespace Chess2Console
    
     public static class Utils
     {
+
+    #region CG and memories
+
+    public static void GCColect()
+    {
+      Debug.WriteLine($"Memory used before collection: {Utils.SizeSuffix(GC.GetTotalMemory(false))}");
+      Console.WriteLine($"Memory used before collection: {Utils.SizeSuffix(GC.GetTotalMemory(false))}");
+      GC.Collect();
+      Debug.WriteLine($"Memory used before collection: {Utils.SizeSuffix(GC.GetTotalMemory(false))}");
+      Console.WriteLine($"Memory used before collection: {Utils.SizeSuffix(GC.GetTotalMemory(false))}");
+
+    }
+
+    static readonly string[] SizeSuffixes =
+             { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+
+    public static string SizeSuffix(Int64 value, int decimalPlaces = 1)
+    {
+      if (value < 0) { return "-" + SizeSuffix(-value, decimalPlaces); }
+
+      int i = 0;
+      decimal dValue = (decimal)value;
+      while (Math.Round(dValue, decimalPlaces) >= 1000)
+      {
+        dValue /= 1024;
+        i++;
+      }
+
+      return string.Format("{0:n" + decimalPlaces + "} {1}", dValue, SizeSuffixes[i]);
+    }
+    #endregion
+
+
+    public static DateTime StartedProcessTime { get; set; }
+    //Pour T41, on limite le temps de reflection, si le temps depasse le seul, on ne fait plus de verification, in Chess2Utils.TargetColorIsInChess() au niveau 4
+    public static double LimitationForT41InMn { get; set; } = 1.5;
+
+
+
+
     public static bool TargetKingColorIsProteted(Board inBoard, string targetkingColor)
     {
       try

@@ -294,6 +294,7 @@ namespace Chess.Utils
         Console.WriteLine($"Opinion color = {Chess2Console.Utils.OpinionColor}");
         Debug.WriteLine($"Computer color = {Chess2Console.Utils.ComputerColor}");
         Debug.WriteLine($"Opinion color = {Chess2Console.Utils.OpinionColor}");
+        Chess2Console.Utils.StartedProcessTime = DateTime.Now;
         Chess2Console.Utils.NodeLoseList.Clear();
         Debug.WriteLine("L4--------------------");
         Console.WriteLine("L4--------------------");
@@ -329,18 +330,28 @@ namespace Chess.Utils
 
           if (Chess2Console.Utils.NodeLoseList.Count > 0)
           {
-            Console.WriteLine("--LOSE NODE DETECTED--");
-            Debug.WriteLine("--LOSE NODE DETECTED--");
-            //var firtNode2Win= Utils.NodeWinList.First();
-            foreach (var node2 in Chess2Console.Utils.NodeLoseList)
+            //T98
+            try
             {
-              var nodeWinResult = new Node();
-              nodeWinResult.Location = Chess2Utils.GetLocationFromIndex(node2.FromIndex);
-              nodeWinResult.BestChildPosition = Chess2Utils.GetLocationFromIndex(node2.ToIndex);
-              nodeWinResult.Weight = node2.Weight;
-              Debug.WriteLine($"{nodeWinResult.Weight}  {nodeWinResult.Location} =>  {nodeWinResult.BestChildPosition}");
-              Console.WriteLine($"{nodeWinResult.Weight}  {nodeWinResult.Location} =>  {nodeWinResult.BestChildPosition}");
+              Console.WriteLine("--LOSE NODE DETECTED--");
+              Debug.WriteLine("--LOSE NODE DETECTED--");
+              //var firtNode2Win= Utils.NodeWinList.First();
+              foreach (var node2 in Chess2Console.Utils.NodeLoseList)
+              {
+                var nodeWinResult = new Node();
+                nodeWinResult.Location = Chess2Utils.GetLocationFromIndex(node2.FromIndex);
+                nodeWinResult.BestChildPosition = Chess2Utils.GetLocationFromIndex(node2.ToIndex);
+                nodeWinResult.Weight = node2.Weight;
+                Debug.WriteLine($"{nodeWinResult.Weight}  {nodeWinResult.Location} =>  {nodeWinResult.BestChildPosition}");
+                Console.WriteLine($"{nodeWinResult.Weight}  {nodeWinResult.Location} =>  {nodeWinResult.BestChildPosition}");
+              }
             }
+            catch (Exception)
+            {
+              Debug.WriteLine("DONT PANIC: too mach loseds nodes detected (loseds nodes ignoreds)");
+              Console.WriteLine("DONT PANIC: too mach loseds nodes detected (loseds nodes ignoreds)");
+            }
+
 
 
           }
@@ -672,17 +683,7 @@ namespace Chess.Utils
 
     public void Dispose()
     {
-      Debug.WriteLine("Memory used before collection:       {0:N0}",
-   GC.GetTotalMemory(false));
-      /* Console.WriteLine("Memory used before collection:       {0:N0}",
-               GC.GetTotalMemory(false));*/
-      Debug.WriteLine("Collect");
-
-      GC.Collect();
-      Debug.WriteLine("Memory used before collection:       {0:N0}",
-            GC.GetTotalMemory(false));
-      /*   Console.WriteLine("Memory used before collection:       {0:N0}",
-                 GC.GetTotalMemory(false));*/
+      Chess2Console.Utils.GCColect();
     }
 
     public static int[] SimplePawnFirstBlackTab64 = {

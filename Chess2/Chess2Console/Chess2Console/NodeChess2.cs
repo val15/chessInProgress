@@ -341,11 +341,29 @@ namespace Chess2Console
         Weight = -999;
         return;
       }
-      Board.CalculeScores();
-      if (computeurColor == "B")
-        Weight = Board.BlackScore - Board.WhiteScore;
-      else
-        Weight = Board.WhiteScore - Board.BlackScore;
+
+      if (level == 4)
+      {
+
+        //T41
+        var diffTime = (DateTime.Now - Utils.StartedProcessTime).TotalMinutes;
+        //  Debug.WriteLine("diffTime = "+ diffTime);
+        //  Debug.WriteLine("diffTime = "+ diffTime);
+        if (diffTime < Utils.LimitationForT41InMn)
+        {
+          //      Debug.WriteLine("Chess2Utils.TargetColorIsInChess() in L4");
+          // Debug.WriteLine("Chess2Utils.TargetColorIsInChess() in L4");
+          //T97A
+          if (Chess2Console.Utils.TargetColorIsInChess(Board, Utils.ComputerColor))
+          {
+            Parent.Parent.Weight--;//+= -99;//Poure que T97A marche avec T37
+            return;
+          }
+        }
+
+      }
+      CalculeScores();
+      
 
 
 
