@@ -224,98 +224,101 @@ namespace Chess2Console
 
         }
 
-        public void CalculeScores()
+    public void CalculeScores()
+    {
+      var blackBonus = 0;
+      var whiteBonus = 0;
+      foreach (var evolutionPawnIndex in Utils.GetEvolutionPawnIndexWhite())
+      {
+        var contains = _cases[evolutionPawnIndex];
+        if (contains.Contains("P"))
         {
-            var blackBonus = 0;
-            var whiteBonus = 0;
-            foreach (var evolutionPawnIndex in Utils.GetEvolutionPawnIndexWhite())
-            {
-                var contains = _cases[evolutionPawnIndex];
-                if (contains.Contains("P"))
-                {
-                    whiteBonus = 9;
-                    break;
-                }
-            }
-
-            foreach (var evolutionPawnIndex in Utils.GetEvolutionPawnIndexBlack())
-            {
-                var contains = _cases[evolutionPawnIndex];
-                if (contains.Contains("P"))
-                {
-                    blackBonus = 9;
-                    break;
-                }
-            }
-
-            var whitePawnNumber = _cases.Count(x => x == "P|W");
-            var blackPawnNumber = _cases.Count(x => x == "P|B");
-            var whiteBishopNumber = _cases.Count(x => x == "B|W");
-            var blackBishopNumber = _cases.Count(x => x == "B|B");
-            var whiteKnightNumber = _cases.Count(x => x == "C|W");
-            var blackKnightNumber = _cases.Count(x => x == "C|B");
-            var whiteRookNumber = _cases.Count(x => x == "T|W");
-            var blackRooktNumber = _cases.Count(x => x == "T|B");
-            var whiteQueenNumber = _cases.Count(x => x == "Q|W");
-            var blackQueenNumber = _cases.Count(x => x == "Q|B");
-            var whiteKingNumber = _cases.Count(x => x == "K|W");
-            var blackKingNumber = _cases.Count(x => x == "K|B");
-
-
-
-            WhiteScore =
-                 whitePawnNumber
-                 + (whiteBishopNumber + whiteKnightNumber) * 3
-                 + whiteRookNumber * 5
-                 + whiteQueenNumber * 9
-             + whiteKingNumber * 100
-            + whiteBonus;
-            BlackScore =
-              blackPawnNumber
-              + (blackBishopNumber + blackKnightNumber) * 3
-              + blackRooktNumber * 5
-              + blackQueenNumber * 9
-              + blackKingNumber * 100
-              + blackBonus;
-
-
-            Diff = Math.Abs(BlackScore - WhiteScore);
-            if (Utils.ComputerColor == "B")
-                Weight = BlackScore - WhiteScore;
-            else
-                Weight = WhiteScore - BlackScore;
+          whiteBonus = 90;
+          break;
         }
+      }
 
-        public int GetValue(string caseContaint)
+      foreach (var evolutionPawnIndex in Utils.GetEvolutionPawnIndexBlack())
+      {
+        var contains = _cases[evolutionPawnIndex];
+        if (contains.Contains("P"))
         {
-            if (caseContaint.Contains("P|"))
-                return 1;
-            if (caseContaint.Contains("B|") || caseContaint.Contains("C|"))
-                return 3;
-            if (caseContaint.Contains("T|"))
-                return 5;
-            if (caseContaint.Contains("Q|"))
-                return 9;
-            if (caseContaint.Contains("K|"))
-                return 100;
-            return 0;
-
+          blackBonus = 90;
+          break;
         }
-        public string GetCaseInIndex(int index)
-        {
-            return _cases[index];
-        }
-        public int GetWeightInIndex(int index)
-        {
-            var caseContaint = GetCaseInIndex(index);
+      }
+
+      var whitePawnNumber = _cases.Count(x => x == "P|W");
+      var blackPawnNumber = _cases.Count(x => x == "P|B");
+      var whiteBishopNumber = _cases.Count(x => x == "B|W");
+      var blackBishopNumber = _cases.Count(x => x == "B|B");
+      var whiteKnightNumber = _cases.Count(x => x == "C|W");
+      var blackKnightNumber = _cases.Count(x => x == "C|B");
+      var whiteRookNumber = _cases.Count(x => x == "T|W");
+      var blackRooktNumber = _cases.Count(x => x == "T|B");
+      var whiteQueenNumber = _cases.Count(x => x == "Q|W");
+      var blackQueenNumber = _cases.Count(x => x == "Q|B");
+      var whiteKingNumber = _cases.Count(x => x == "K|W");
+      var blackKingNumber = _cases.Count(x => x == "K|B");
 
 
 
-            return GetValue(caseContaint);
-        }
+      WhiteScore =
+           whitePawnNumber * 10
+           + whiteBishopNumber * 30
+            + whiteKnightNumber * 30
+           + whiteRookNumber * 50
+           + whiteQueenNumber * 90
+       + whiteKingNumber * 100
+      + whiteBonus;
+      BlackScore =
+        blackPawnNumber * 10
+        + blackBishopNumber * 30
+        + blackKnightNumber * 30
+        + blackRooktNumber * 50
+        + blackQueenNumber * 90
+        + blackKingNumber * 100
+        + blackBonus;
 
 
-        public Board()
+
+      Diff = Math.Abs(WhiteScore - BlackScore);
+      if (Utils.ComputerColor == "B")
+        Weight = BlackScore - WhiteScore;
+      else
+        Weight = WhiteScore - BlackScore;
+    }
+
+    public int GetValue(string caseContaint)
+    {
+      if (caseContaint.Contains("P|"))
+        return 10;
+      if (caseContaint.Contains("B|") || caseContaint.Contains("C|"))
+        return 30;
+      if (caseContaint.Contains("T|"))
+        return 50;
+      if (caseContaint.Contains("Q|"))
+        return 90;
+      if (caseContaint.Contains("K|"))
+        return 100;
+      return 0;
+
+    }
+    public string GetCaseInIndex(int index)
+    {
+      return _cases[index];
+    }
+    public int GetWeightInIndex(int index)
+    {
+      var caseContaint = GetCaseInIndex(index);
+
+
+
+      return GetValue(caseContaint);
+    }
+
+
+    public Board()
         {
             for (int i = 0; i < 64; i++)
             {

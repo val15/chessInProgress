@@ -6717,12 +6717,61 @@ namespace Chess.Test
       //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
       //Assert.IsNull(randomList);
       //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+    }
+
+    /*tsiry;19-07-2022*/
+    [TestMethod]
+    public void MTT100BlackG6ToF5()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+      var testName = "T100BlackG6ToF5";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);    // Assert.AreNotEqual(nodeResult.Location, "c7");
+        Assert.AreEqual("f5", nodeResult.BestChildPosition);
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
 
 
 
 
 
     }
+    /*tsiry;19-07-2022*/
+    [TestMethod]
+    public void MTT105BlackC6ToD4()
+    {
+
+      var mainWindow = new MainWindow(); mainWindow.SetTurnNumberLabel("5"); mainWindow.ComputerColore = "Black";
+      var testName = "T105BlackC6ToD4";
+      var testPath = Path.Combine(testsDirrectory, testName);
+      mainWindow.LoadFromDirectorie(testPath);
+      using (var chess2UtilsNotStatic = new Chess2UtilsNotStatic())
+      {
+        var nodeResult = mainWindow.GetBestPositionLocalNotTask(mainWindow.ComputerColore);        // Assert.AreNotEqual(nodeResult.Location, "c7");
+        //Assert.IsTrue(nodeResult.li)
+
+        var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+        Assert.AreEqual(0, randomList.Count);
+        Assert.AreEqual("d4", nodeResult.BestChildPosition);
+
+      }
+      //var randomList = nodeResult.AsssociateNodeChess2.RandomEquivalentList;
+      //Assert.IsNull(randomList);
+      //echec si nodeResult.Location ==  nodeResult.BestChildPosition
+
+
+
+
+
+    }
+
 
 
   }

@@ -134,6 +134,66 @@ namespace Chess2Console
 
     }
 
+
+    /// <summary>
+    /// tsiry;20-07-2022
+    /// </summary>
+    public static int GetWeigtOpionionMenacedsByToIndex(Board inBoard, string opinionColorColor, int toIndex)
+    {
+      try
+      {
+        var weight = 0;
+        var opinionPawnIndex = inBoard.GetCasesIndexForColor(opinionColorColor);
+        foreach (var index in opinionPawnIndex)
+        {
+
+          if (TargetIndexIsMenacedByToIndex(inBoard, opinionColorColor, index, toIndex))
+            weight += inBoard.GetWeightInIndex(index);
+        }
+        return weight;
+      }
+      catch (Exception ex)
+      {
+        return 0;
+
+      }
+    }
+
+    /// <summary>
+    /// tsiry;20-07-2022
+    /// </summary>
+    public static bool TargetIndexIsMenacedByToIndex(Board inBoard, string targetColor, int targetIndex, int toIndex)
+    {
+      try
+      {
+        var opinionColor = "W";
+        if (targetColor == "W")
+          opinionColor = "B";
+        var copyBoard = new Board(inBoard);
+        if (targetIndex != -1)
+        {
+          if (copyBoard.GetCases()[targetIndex].Contains($"|{opinionColor}"))//si la case contion un pion adverse, on le vide
+            copyBoard.GetCases()[targetIndex] = "__";
+        }
+
+
+        var opinionPossibleMoveIndexList = new List<int>();
+
+        opinionPossibleMoveIndexList.AddRange(copyBoard.GetPossibleMoves(toIndex, 1, false).Select(x => x.Index));
+
+        if (opinionPossibleMoveIndexList.Contains(targetIndex))
+          return true;
+
+        return false;
+      }
+      catch (Exception ex)
+      {
+        return false;
+
+      }
+    }
+
+
     /// <summary>
     /// tsiry;02-07-2022
     /// </summary>
